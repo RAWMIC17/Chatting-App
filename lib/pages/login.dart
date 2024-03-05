@@ -16,11 +16,10 @@ class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
   bool changebutton = false;
   var image = Image.asset(
-    "lib/assets/header.png",
+    "lib/images/header.png",
     height: 290,
     width: 290,
   );
-  double _size = 290;
 
   moveToHome(BuildContext context) async {
     if (_formkey.currentState!.validate()) {
@@ -39,85 +38,65 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Mycolors.creamcolor,
+      //backgroundColor: Mycolors.creamcolor,
       body: Stack(
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 82, left: 33),
-            child: Image.asset(
-              "lib/assets/woman.png",
+          Center(
+              child: Image.asset(
+            "lib/images/START.png",
+            fit: BoxFit.cover,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+          )),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 450, right: 165),
+                  child: Image.asset("lib/images/image-7.png"),
+                ),
+                SizedBox(
+                  height: 13,
+                ),
+                Container(
+                  padding: EdgeInsets.only(right: 80),
+                  child: Image.asset("lib/images/RnPSoft.png"),
+                ),
+                SizedBox(
+                  height: 23,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 20),
+                  child: "Endless Possibilities."
+                      .text
+                      .fontWeight(FontWeight.w300)
+                      .xl3
+                      .fontFamily("Poppins")
+                      .color(Mycolors.textcolor1)
+                      .make(),
+                ),
+                Container(
+                  padding: EdgeInsets.only(right: 145),
+                  child: "Infinite."
+                      .text
+                      .xl3
+                      .fontWeight(FontWeight.w300)
+                      .fontFamily("Poppins")
+                      .color(Mycolors.textcolor1)
+                      .make(),
+                ),
+              ],
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 98, left: 52),
-            child: AnimatedSize(
-              curve: Curves.fastEaseInToSlowEaseOut,
-              //alignment: Alignment.center,
-              duration: Duration(microseconds: 600),
-              child: AnimatedRotation(
-                curve: Curves.fastEaseInToSlowEaseOut,
-                alignment: Alignment.center,
-                turns: turns,
-                duration: Duration(milliseconds: 600),
-                child: image,
-              ),
-            ),
-          ),
-          /* Container(
-            child: AnimatedContainer(duration: Duration(seconds: 1),
-            alignment: Alignment.center,
-            child: image,
-            curve: Curves.easeIn,
-            height: _size=_size== 100 ?40:100,
-            width: _size=_size== 100 ?40:100,
-            ),
-          ),*/
-          /*Transform.rotate(
-            alignment: Alignment.center,
-            angle: finalAngle,
-            origin: Offset(0, 0),
-            child: Container(
-                padding: EdgeInsets.only(top: 60, left: 33),
-                child: Image.asset("lib/assets/header.png")),
-          ),*/
-
-
-
-
-
-
-
-          Container(
-            padding: EdgeInsets.only(
-              top: 486,
-            ),
-            child: "Solution for your chat application system"
-                .text
-                .xl4
-                .fontWeight(FontWeight.w400)
-                .fontFamily('Mulish')
-                //.wide
-                .align(TextAlign.center)
-                .make(),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 590, left: 27, right: 27),
-            child:
-                ' "Now it is very easy to find your people. We have a solution for your experience" '
-                    .text
-                    .xl
-                    .align(TextAlign.center)
-                    .make(),
           ),
           Container(
             width: 371,
-            padding: EdgeInsets.only(top: 690, left: 22),
+            padding: EdgeInsets.only(top: 690, left: 30, right: 10),
             child: ElevatedButton(
               onPressed: () {
-                setState(() {
-                  _size = _size == 290 ? 200 : 290;
-                });
-                setState(() => turns = turns == 0 ? -1 / 4 : 0);
+                // setState(() {
+                //   _size = _size == 290 ? 200 : 290;
+                // });
+                // setState(() => turns = turns == 0 ? -1 / 4 : 0);
                 showModalBottomSheet(
                     isScrollControlled: true,
                     backgroundColor: Mycolors.bottomsheetcolor,
@@ -143,8 +122,8 @@ class _LoginPageState extends State<LoginPage> {
                               child: Column(
                                 children: [
                                   Container(
-                                    padding:
-                                        EdgeInsets.only(right: 273, top: 3),
+                                    padding: EdgeInsets.only(
+                                        left: 20, right: 273, top: 3),
                                     height: 23,
                                     child: "Username"
                                         .text
@@ -180,8 +159,8 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ),
                                   Container(
-                                    padding:
-                                        EdgeInsets.only(right: 273, top: 8),
+                                    padding: EdgeInsets.only(
+                                        left: 20, right: 273, top: 8),
                                     height: 28,
                                     child: "Password"
                                         .text
@@ -223,7 +202,8 @@ class _LoginPageState extends State<LoginPage> {
                                     height: 30,
                                   ),
                                   Container(
-                                    padding: EdgeInsets.only(top: 25),
+                                    padding: EdgeInsets.only(
+                                        top: 25, left: 15, right: 15),
                                     height: 80,
                                     width: 356,
                                     child: ElevatedButton(
@@ -233,16 +213,17 @@ class _LoginPageState extends State<LoginPage> {
                                       },
                                       child: "Login"
                                           .text
-                                          .xl
-                                          .fontFamily('Mulish')
-                                          .normal
+                                          .xl2
+                                          .bold
+                                          .fontFamily('Poppins')
+                                          .wide
                                           .color(Vx.white)
                                           .wide
                                           .make(),
                                       style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all(
-                                                Mycolors.buttoncolor),
+                                                Mycolors.buttoncolor1),
                                         //fixedSize: MaterialStateProperty.all(Size(100, 70)),
                                         minimumSize:
                                             MaterialStateProperty.all<Size>(
@@ -258,7 +239,6 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   )
                                 ],
-                                //"Close".text.make()
                               ),
                             ),
                           ),
@@ -283,14 +263,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              child: " Get Started"
-                  .text
-                  .xl
-                  .fontFamily('Mulish')
-                  .normal
-                  .wide
-                  .color(Vx.white)
-                  .make(),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 60, right: 7),
+                    child: Icon(
+                      CupertinoIcons.square_arrow_right_fill,
+                      color: Vx.black,
+                    ),
+                  ),
+                  Container(padding: EdgeInsets.only(right: 5),
+                    child: " Get Started"
+                        .text
+                        .bold
+                        .wide
+                        .xl2
+                        .fontFamily('Poppins')
+                        .color(Vx.black)
+                        .make(),
+                  ),
+                ],
+              ),
             ),
           )
         ],
