@@ -266,13 +266,14 @@ class _LoginPageState extends State<LoginPage> {
               child: Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 60, right: 7),
+                    padding: EdgeInsets.only(left: 55, right: 7),
                     child: Icon(
                       CupertinoIcons.square_arrow_right_fill,
                       color: Vx.black,
                     ),
                   ),
-                  Container(padding: EdgeInsets.only(right: 5),
+                  Container(
+                    padding: EdgeInsets.only(right: 5),
                     child: " Get Started"
                         .text
                         .bold
