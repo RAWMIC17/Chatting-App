@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false, //to remove debug banner
-        initialRoute: MyRoutes.notificationRoute, //changes the default the route
+        initialRoute: MyRoutes.loginRoute, //changes the default the route
 
         routes: {
           //"/" is show on screen first by default
