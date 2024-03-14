@@ -1,3 +1,5 @@
+import 'package:chatting_app_1/pages/chatpage.dart';
+import 'package:chatting_app_1/pages/groups.dart';
 import 'package:chatting_app_1/pages/notifications.dart';
 import 'package:flutter/material.dart';
 
@@ -15,13 +17,15 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false, //to remove debug banner
-        initialRoute: MyRoutes.loginRoute, //changes the default the route
+        initialRoute: MyRoutes.chatpageRoute, //changes the default the route
 
         routes: {
           //"/" is show on screen first by default
           "/": (context) =>  LoginPage(),
           MyRoutes.loginRoute: (context) => LoginPage(),
           MyRoutes.notificationRoute:(context) => NotificationPage(),
+          MyRoutes.chatpageRoute:(context) => ChatPage(),
+          MyRoutes.groupsRoute:(context) => GroupPage(),
         }
         );
   }

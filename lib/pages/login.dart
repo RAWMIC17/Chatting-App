@@ -1,3 +1,4 @@
+import 'package:chatting_app_1/pages/chatpage.dart';
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,11 +16,11 @@ class _LoginPageState extends State<LoginPage> {
   double turns = 0.0;
   final _formkey = GlobalKey<FormState>();
   bool changebutton = false;
-  var image = Image.asset(
-    "lib/images/header.png",
-    height: 290,
-    width: 290,
-  );
+  // var image = Image.asset(
+  //   "lib/images/header.png",
+  //   height: 290,
+  //   width: 290,
+  // );
 
   moveToHome(BuildContext context) async {
     if (_formkey.currentState!.validate()) {
@@ -28,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       });
 
       await Future.delayed(Duration(seconds: 1));
-      //await Navigator.pushNamed(context, MyRoutes.loginRoute);
+      await Navigator.pushNamed(context, MyRoutes.chatpageRoute);
 
       setState(() {
         changebutton = false;
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
           Center(
             child: Container(
               width: 320,
-              padding: EdgeInsets.only(top: 680,bottom: 5),
+              padding: EdgeInsets.only(top: 680, bottom: 5),
               child: ElevatedButton(
                 onPressed: () {
                   // setState(() {
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                                       height: 23,
                                       child: "Username"
                                           .text
-                                          .color(Mycolors.textcolor)
+                                          .color(Mycolors.textcolorblack)
                                           .fontFamily('Mulish')
                                           .xl2
                                           .make(),
@@ -165,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                                       height: 28,
                                       child: "Password"
                                           .text
-                                          .color(Mycolors.textcolor)
+                                          .color(Mycolors.textcolorblack)
                                           .fontFamily('Mulish')
                                           .xl2
                                           .make(),
@@ -195,7 +196,9 @@ class _LoginPageState extends State<LoginPage> {
                                           return null;
                                         },
                                         onChanged: (value) {
-                                          setState(() {});
+                                          setState(() {
+                                           
+                                          });
                                         },
                                       ),
                                     ),
