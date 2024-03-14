@@ -130,10 +130,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: "558f10070f03ee71f850a78f7136ab239a67636a294a44a06b6b7345178edb1e"
+      sha256: "45e2c0986d749c070509e03d6c7ad6c8bd1f7b1dad7d11dd8750a5e4fe3e2c0b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.10"
+    version: "2.3.11"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -156,10 +156,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "49a0d4b0c12402853d3f227fe7c315601b238d126aa4caa5dbb2dcf99421aa4a"
+      sha256: "4c68bfd5ae83e700b5204c1e74451e7bf3cf750e6843c6e158289cf56bda018e"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.6"
+    version: "4.1.7"
   intl:
     dependency: transitive
     description:
@@ -172,10 +172,10 @@ packages:
     dependency: transitive
     description:
       name: js
-      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
+      sha256: c1b2e9b5ea78c45e1a0788d29606ba27dc5f71f019f32ca5140f61ef071838cf
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.7"
+    version: "0.7.1"
   lints:
     dependency: transitive
     description:
