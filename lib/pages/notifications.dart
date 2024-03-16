@@ -70,7 +70,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 padding: EdgeInsets.only(bottom: 10),
                 child: TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, MyRoutes.chatpageRoute);
+                      Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
                     },
                     child: Icon(
                       CupertinoIcons.chevron_left,

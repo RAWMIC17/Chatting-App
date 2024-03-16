@@ -4,57 +4,57 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class GroupPage extends StatefulWidget {
-  const GroupPage({super.key});
+class CallsPage extends StatefulWidget {
+  const CallsPage({super.key});
 
   @override
-  State<GroupPage> createState() => _GroupPageState();
+  State<CallsPage> createState() => _CallsPageState();
 }
 
-class _GroupPageState extends State<GroupPage> {
+class _CallsPageState extends State<CallsPage> {
 
   int myindex = 1;
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 50,
-          selectedItemColor: Vx.black,
-          unselectedItemColor: Vx.gray500,
-          iconSize: 26,
-          currentIndex: myindex,
-          onTap: (index) {
-            setState(() {
-              myindex = index;
-            });
-          },
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              //activeIcon: ,
-              icon: Icon(
-                Icons.phone_in_talk_rounded,
-              ),
-              label: 'Calls',
-              //backgroundColor: Colors.green
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.chat_bubble_2_fill,
-              ),
-              label: 'Messages',
-              //backgroundColor: Colors.yellow
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.person_alt,
-              ),
-              label: 'Profile',
-              //backgroundColor: Colors.blue,
-            ),
-          ],
-        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   elevation: 50,
+        //   selectedItemColor: Vx.black,
+        //   unselectedItemColor: Vx.gray500,
+        //   iconSize: 26,
+        //   currentIndex: myindex,
+        //   onTap: (index) {
+        //     setState(() {
+        //       myindex = index;
+        //     });
+        //   },
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       //activeIcon: ,
+        //       icon: Icon(
+        //         Icons.phone_in_talk_rounded,
+        //       ),
+        //       label: 'Calls',
+        //       //backgroundColor: Colors.green
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(
+        //         CupertinoIcons.chat_bubble_2_fill,
+        //       ),
+        //       label: 'Messages',
+        //       //backgroundColor: Colors.yellow
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(
+        //         CupertinoIcons.person_alt,
+        //       ),
+        //       label: 'Profile',
+        //       //backgroundColor: Colors.blue,
+        //     ),
+        //   ],
+        // ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(top: 15),
@@ -111,36 +111,34 @@ class _GroupPageState extends State<GroupPage> {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
-                      },
-                      child: Icon(
-                        CupertinoIcons.left_chevron,
-                        color: Vx.white,
-                        size: 30,
-                      )),
-                ),
-                Container(
-                    padding: EdgeInsets.only(top: 15, bottom: 26, right: 75),
+                    padding: EdgeInsets.only(top: 15, bottom: 26, ),
                     //color: Vx.red500,
                     width: 310,
                     alignment: Alignment.center,
-                    child: "Groups"
+                    child: "Calls"
                         .text
                         .xl5
                         .fontWeight(FontWeight.w400)
                         .color(Mycolors.textcolorwhite)
                         .make()),
+                // Container(
+                //   padding: EdgeInsets.only(bottom: 8),
+                //   child: TextButton(
+                //       onPressed: () {
+                //         Navigator.pushNamed(context, MyRoutes.groupsRoute);
+                //       },
+                //       child: Icon(
+                //         CupertinoIcons.right_chevron,
+                //         color: Vx.white,
+                //         size: 30,
+                //       )),
+                // )
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10,),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -155,3 +153,7 @@ class _GroupPageState extends State<GroupPage> {
     );
   }
 }
+
+//bloc
+//provider
+//riverpod
