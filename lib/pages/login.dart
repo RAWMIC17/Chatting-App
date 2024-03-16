@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       });
 
       await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.chatpageRoute);
+      await Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
 
       setState(() {
         changebutton = false;
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                       .fontWeight(FontWeight.w300)
                       .xl3
                       .fontFamily("Poppins")
-                      .color(Mycolors.textcolor1)
+                      .color(Mycolors.textcolorblue)
                       .make(),
                 ),
                 Container(
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       .xl3
                       .fontWeight(FontWeight.w300)
                       .fontFamily("Poppins")
-                      .color(Mycolors.textcolor1)
+                      .color(Mycolors.textcolorblue)
                       .make(),
                 ),
               ],
