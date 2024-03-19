@@ -4,6 +4,7 @@ import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ChatPage extends StatefulWidget {
@@ -27,6 +28,7 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
+      // var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         // bottomNavigationBar: BottomNavigationBar(
@@ -90,8 +92,8 @@ class _ChatPageState extends State<ChatPage> {
           children: [
             // Center(child: widgetList[myindex]),
             Container(
-              width: 385,
-              padding: EdgeInsets.only(top: 25, right: 30, left: 5),
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(top: 25,  left: 10),
               //color: Vx.red500,
               //margin: EdgeInsets.all(2),
               child: "Welcome,"
@@ -104,7 +106,7 @@ class _ChatPageState extends State<ChatPage> {
             ),
             Container(
               //margin: EdgeInsets.all(0.5),
-              width: 395,
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(
                 left: 10,
               ),
@@ -121,33 +123,40 @@ class _ChatPageState extends State<ChatPage> {
             SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    padding: EdgeInsets.only(top: 15, bottom: 26, left: 70),
-                    //color: Vx.red500,
-                    width: 310,
-                    alignment: Alignment.center,
-                    child: "Chats"
-                        .text
-                        .xl5
-                        .fontWeight(FontWeight.w400)
-                        .color(Mycolors.textcolorwhite)
-                        .make()),
-                Container(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.groupsRoute);
-                      },
-                      child: Icon(
-                        CupertinoIcons.right_chevron,
-                        color: Vx.white,
-                        size: 30,
-                      )),
-                )
-              ],
+            Container(
+              //width: MediaQuery.of(context).size.width,
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    
+                   // color: Vx.red500,
+                      padding: EdgeInsets.only(top: 15, bottom: 26,left: MediaQuery.of(context).size.width/4,),
+                      //color: Vx.red500,
+                       //width: MediaQuery.of(context).size.width/4,
+                      alignment: Alignment.center,
+                      child: "Chats"
+                          .text
+                          .xl5
+                          .fontWeight(FontWeight.w400)
+                          .color(Mycolors.textcolorwhite)
+                          .make()),
+                  Container(
+                    // color: Vx.red500,
+                    width: MediaQuery.of(context).size.width/3.5,
+                    //padding: EdgeInsets.only( right: MediaQuery.of(context).size.width/4,),
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.groupsRoute);
+                        },
+                        child: Icon(
+                          CupertinoIcons.right_chevron,
+                          color: Vx.white,
+                          size: 30,
+                        )),
+                  )
+                ],
+              ),
             ),
             SizedBox(
               height: 10,

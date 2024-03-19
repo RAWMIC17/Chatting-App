@@ -10,72 +10,76 @@ class BottomNavigationBarPage extends StatefulWidget {
   const BottomNavigationBarPage({super.key});
 
   @override
-  State<BottomNavigationBarPage> createState() => _BottomNavigationBarPageState();
+  State<BottomNavigationBarPage> createState() =>
+      _BottomNavigationBarPageState();
 }
 
 class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
-
   int myindex = 1;
 
   List<Widget> widgetList = const [
     CallsPage(),
     ChatPage(),
-     ProfilePage(),
+    // ProfilePage(),
     // Text("Calls", style: TextStyle(fontSize: 40),),
     // Text("Chats", style: TextStyle(fontSize: 40),),
     // Text("Profile", style: TextStyle(fontSize: 40),),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            elevation: 50,
-            selectedItemColor: Vx.black,
-            unselectedItemColor: Vx.gray500,
-            iconSize: 26,
-            currentIndex: myindex,
-            onTap: (index) {
-              setState(() {
-                myindex = index;
-              });
-            },
-            items:  <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                //activeIcon: ,
-                icon: Icon(
-                  Icons.phone_in_talk_rounded,
-                ),
-                label: 'Calls',
-                //backgroundColor: Colors.green
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 50,
+          selectedItemColor: Vx.black,
+          unselectedItemColor: Vx.gray500,
+          iconSize: 26,
+          currentIndex: myindex,
+          onTap: (index) {
+            setState(() {
+              myindex = index;
+            });
+          },
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              //activeIcon: ,
+              icon: Icon(
+                Icons.phone_in_talk_rounded,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  CupertinoIcons.chat_bubble_2_fill,
-                ),
-                label: 'Messages',
-                //backgroundColor: Colors.yellow
+              label: 'Calls',
+              //backgroundColor: Colors.green
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.chat_bubble_2_fill,
               ),
-            
-              BottomNavigationBarItem(
-                icon: GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, MyRoutes.profilepageRoute);
-                  },
+              label: 'Messages',
+              //backgroundColor: Colors.yellow
+            ),
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  Navigator.pushNamed(context, MyRoutes.profilepageRoute);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
                   child: Icon(
                     CupertinoIcons.person_alt,
                   ),
                 ),
-                label: 'Profile',
-                //backgroundColor: Colors.blue,
               ),
-            ],
-          ),
-          body: 
-             IndexedStack(children: widgetList,index: myindex,),
-          ),
+              label: 'Profile',
+              //backgroundColor: Colors.blue,
+            ),
+          ],
+        ),
+        body: IndexedStack(
+          children: widgetList,
+          index: myindex,
+        ),
+      ),
     );
   }
 }

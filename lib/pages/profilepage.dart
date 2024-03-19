@@ -107,7 +107,9 @@ class ProfilePage extends StatelessWidget {
                 width: 220,
                 height: 52,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, MyRoutes.editpageRoute);
+                    },
                     style: ButtonStyle(
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12))),
@@ -306,22 +308,27 @@ class ProfilePage extends StatelessWidget {
                 //     bottom: BorderSide(width: 1, color: Mycolors.appbarcolor),
                 //   ),
                 // ),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 10, right: 12),
-                      //color: Vx.red500,
-                      child: Icon(
-                        Icons.power_settings_new_rounded,
-                        color: Vx.white,
-                        size: 31,
+                child: InkWell(
+                  onTap: () async {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: "Logged Out Successfully".text.make(),
+                      duration: Duration(milliseconds: 1200),
+                    ));
+                    await Future.delayed(Duration(milliseconds: 900));
+                    await Navigator.pushNamed(context, MyRoutes.loginRoute);
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 12),
+                        //color: Vx.red500,
+                        child: Icon(
+                          Icons.power_settings_new_rounded,
+                          color: Vx.white,
+                          size: 31,
+                        ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, MyRoutes.loginRoute);
-                      },
-                      child: Container(
+                      Container(
                         padding: EdgeInsets.only(left: 6, top: 5),
                         child: "Logout"
                             .text
@@ -331,26 +338,26 @@ class ProfilePage extends StatelessWidget {
                             .color(Mycolors.textcolorwhite)
                             .make(),
                       ),
-                    ),
-                    // Container(
-                    //   padding: EdgeInsets.only(left: 141),
-                    //   height: 33,
-                    //   child: ElevatedButton(
-                    //     onPressed: () {},
-                    //     child: Icon(
-                    //       CupertinoIcons.right_chevron,
-                    //     ),
-                    //     style: ButtonStyle(
-                    //         //alignment: Alignment.centerRight,
-                    //         elevation: MaterialStatePropertyAll(15),
-                    //         shape: MaterialStateProperty.all(CircleBorder()),
-                    //         backgroundColor:
-                    //             MaterialStatePropertyAll(Mycolors.appbarcolor),
-                    //         iconColor: MaterialStatePropertyAll(Vx.gray300),
-                    //         iconSize: MaterialStatePropertyAll(17)),
-                    //   ),
-                    // ),
-                  ],
+                      // Container(
+                      //   padding: EdgeInsets.only(left: 141),
+                      //   height: 33,
+                      //   child: ElevatedButton(
+                      //     onPressed: () {},
+                      //     child: Icon(
+                      //       CupertinoIcons.right_chevron,
+                      //     ),
+                      //     style: ButtonStyle(
+                      //         //alignment: Alignment.centerRight,
+                      //         elevation: MaterialStatePropertyAll(15),
+                      //         shape: MaterialStateProperty.all(CircleBorder()),
+                      //         backgroundColor:
+                      //             MaterialStatePropertyAll(Mycolors.appbarcolor),
+                      //         iconColor: MaterialStatePropertyAll(Vx.gray300),
+                      //         iconSize: MaterialStatePropertyAll(17)),
+                      //   ),
+                      // ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(

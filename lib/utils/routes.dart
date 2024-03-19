@@ -6,4 +6,5 @@ class MyRoutes{
   static String callspageRoute = "/callspage";
   static String profilepageRoute = "/profilepage";
   static String bottomnavigationbarRoute = "/bottomnavigationbar";
+  static String editpageRoute = "/wditpage";
 }

@@ -12,12 +12,11 @@ class GroupPage extends StatefulWidget {
 }
 
 class _GroupPageState extends State<GroupPage> {
-
   int myindex = 1;
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           elevation: 50,
@@ -79,8 +78,8 @@ class _GroupPageState extends State<GroupPage> {
         body: Column(
           children: [
             Container(
-              width: 385,
-              padding: EdgeInsets.only(top: 25, right: 30, left: 5),
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(top: 25, left: 10),
               //color: Vx.red500,
               //margin: EdgeInsets.all(2),
               child: "Welcome,"
@@ -93,7 +92,7 @@ class _GroupPageState extends State<GroupPage> {
             ),
             Container(
               //margin: EdgeInsets.all(0.5),
-              width: 395,
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(
                 left: 10,
               ),
@@ -111,24 +110,32 @@ class _GroupPageState extends State<GroupPage> {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
+                        Navigator.pushNamed(
+                            context, MyRoutes.bottomnavigationbarRoute);
                       },
-                      child: Icon(
-                        CupertinoIcons.left_chevron,
-                        color: Vx.white,
-                        size: 30,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Icon(
+                          CupertinoIcons.left_chevron,
+                          color: Vx.white,
+                          size: 30,
+                        ),
                       )),
                 ),
                 Container(
-                    padding: EdgeInsets.only(top: 15, bottom: 26, right: 75),
+                    padding: EdgeInsets.only(
+                      top: 15,
+                      bottom: 26,
+                      right: MediaQuery.of(context).size.width / 4,
+                    ),
                     //color: Vx.red500,
-                    width: 310,
+                    //width: MediaQuery.of(context).size.width ,
                     alignment: Alignment.center,
                     child: "Groups"
                         .text

@@ -79,8 +79,8 @@ class _CallsPageState extends State<CallsPage> {
         body: Column(
           children: [
             Container(
-              width: 385,
-              padding: EdgeInsets.only(top: 25, right: 30, left: 5),
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(top: 25, left: 10),
               //color: Vx.red500,
               //margin: EdgeInsets.all(2),
               child: "Welcome,"
@@ -93,7 +93,7 @@ class _CallsPageState extends State<CallsPage> {
             ),
             Container(
               //margin: EdgeInsets.all(0.5),
-              width: 395,
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(
                 left: 10,
               ),
