@@ -124,14 +124,16 @@ class _LoginPageState extends State<LoginPage> {
                                 child: Column(
                                   children: [
                                     Container(
+                                      //color: Colors.red,
+                                      alignment: Alignment.centerLeft,
                                       padding: EdgeInsets.only(
-                                          left: 20, right: 256, top: 3),
-                                      height: 23,
+                                          left: 25,  top: 3,right: MediaQuery.of(context).size.width/2),
+                                      // height: 23,
                                       child: "Username"
                                           .text
                                           .color(Mycolors.textcolorblack)
                                           .fontFamily('Mulish')
-                                          .xl2
+                                          .size(18)
                                           .make(),
                                     ),
                                     Padding(
@@ -161,14 +163,16 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                     ),
                                     Container(
+                                      //color: Colors.red,
+                                      alignment: Alignment.centerLeft,
                                       padding: EdgeInsets.only(
-                                          left: 20, right: 258, top: 8),
-                                      height: 28,
+                                          left: 25,  top: 3,right: MediaQuery.of(context).size.width/2),
+                                      //height: 28,
                                       child: "Password"
                                           .text
                                           .color(Mycolors.textcolorblack)
                                           .fontFamily('Mulish')
-                                          .xl2
+                                          .size(18)
                                           .make(),
                                     ),
                                     Padding(
@@ -206,9 +210,10 @@ class _LoginPageState extends State<LoginPage> {
                                       height: 30,
                                     ),
                                     Container(
+                                      //color: Colors.red,
                                       padding: EdgeInsets.only(
-                                          top: 25, left: 15, right: 15),
-                                      height: 80,
+                                          top: 40, left: 15, right: 15),
+                                      height: 100,
                                       width: 356,
                                       child: ElevatedButton(
                                         onPressed: () {
