@@ -1,5 +1,6 @@
 import 'package:chatting_app_1/pages/callspage.dart';
 import 'package:chatting_app_1/pages/chatpage.dart';
+import 'package:chatting_app_1/pages/groups.dart';
 import 'package:chatting_app_1/pages/profilepage.dart';
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   List<Widget> widgetList = const [
     CallsPage(),
     ChatPage(),
+    GroupPage()
     // ProfilePage(),
     // Text("Calls", style: TextStyle(fontSize: 40),),
     // Text("Chats", style: TextStyle(fontSize: 40),),
@@ -31,6 +33,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           elevation: 50,
           selectedItemColor: Vx.black,
           unselectedItemColor: Vx.gray500,
@@ -57,17 +60,16 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               label: 'Messages',
               //backgroundColor: Colors.yellow
             ),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.group_solid),
+            label: "groups"),
             BottomNavigationBarItem(
               icon: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Navigator.pushNamed(context, MyRoutes.profilepageRoute);
                 },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                  child: Icon(
-                    CupertinoIcons.person_alt,
-                  ),
+                child: Icon(
+                  CupertinoIcons.person_alt,
                 ),
               ),
               label: 'Profile',

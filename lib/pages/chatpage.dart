@@ -125,38 +125,19 @@ class _ChatPageState extends State<ChatPage> {
             ),
             Container(
               //width: MediaQuery.of(context).size.width,
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    
-                   // color: Vx.red500,
-                      padding: EdgeInsets.only(top: 15, bottom: 26,left: MediaQuery.of(context).size.width/4,),
-                      //color: Vx.red500,
-                       //width: MediaQuery.of(context).size.width/4,
-                      alignment: Alignment.center,
-                      child: "Chats"
-                          .text
-                          .xl5
-                          .fontWeight(FontWeight.w400)
-                          .color(Mycolors.textcolorwhite)
-                          .make()),
-                  Container(
-                    // color: Vx.red500,
-                    width: MediaQuery.of(context).size.width/3.5,
-                    //padding: EdgeInsets.only( right: MediaQuery.of(context).size.width/4,),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.groupsRoute);
-                        },
-                        child: Icon(
-                          CupertinoIcons.right_chevron,
-                          color: Vx.white,
-                          size: 30,
-                        )),
-                  )
-                ],
-              ),
+              child: Container(
+                
+               // color: Vx.red500,
+                  padding: EdgeInsets.only(top: 15, bottom: 26,),
+                  //color: Vx.red500,
+                   //width: MediaQuery.of(context).size.width/4,
+                  alignment: Alignment.center,
+                  child: "Chats"
+                      .text
+                      .xl5
+                      .fontWeight(FontWeight.w400)
+                      .color(Mycolors.textcolorwhite)
+                      .make()),
             ),
             SizedBox(
               height: 10,

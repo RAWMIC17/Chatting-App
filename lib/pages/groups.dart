@@ -18,42 +18,42 @@ class _GroupPageState extends State<GroupPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 50,
-          selectedItemColor: Vx.black,
-          unselectedItemColor: Vx.gray500,
-          iconSize: 26,
-          currentIndex: myindex,
-          onTap: (index) {
-            setState(() {
-              myindex = index;
-            });
-          },
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              //activeIcon: ,
-              icon: Icon(
-                Icons.phone_in_talk_rounded,
-              ),
-              label: 'Calls',
-              //backgroundColor: Colors.green
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.chat_bubble_2_fill,
-              ),
-              label: 'Messages',
-              //backgroundColor: Colors.yellow
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.person_alt,
-              ),
-              label: 'Profile',
-              //backgroundColor: Colors.blue,
-            ),
-          ],
-        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   elevation: 50,
+        //   selectedItemColor: Vx.black,
+        //   unselectedItemColor: Vx.gray500,
+        //   iconSize: 26,
+        //   currentIndex: myindex,
+        //   onTap: (index) {
+        //     setState(() {
+        //       myindex = index;
+        //     });
+        //   },
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       //activeIcon: ,
+        //       icon: Icon(
+        //         Icons.phone_in_talk_rounded,
+        //       ),
+        //       label: 'Calls',
+        //       //backgroundColor: Colors.green
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(
+        //         CupertinoIcons.chat_bubble_2_fill,
+        //       ),
+        //       label: 'Messages',
+        //       //backgroundColor: Colors.yellow
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(
+        //         CupertinoIcons.person_alt,
+        //       ),
+        //       label: 'Profile',
+        //       //backgroundColor: Colors.blue,
+        //     ),
+        //   ],
+        // ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(top: 15),
@@ -109,42 +109,21 @@ class _GroupPageState extends State<GroupPage> {
             SizedBox(
               height: 10,
             ),
-            Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, MyRoutes.bottomnavigationbarRoute);
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width / 4,
-                        child: Icon(
-                          CupertinoIcons.left_chevron,
-                          color: Vx.white,
-                          size: 30,
-                        ),
-                      )),
+            Container(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  bottom: 26,
+                  //right: MediaQuery.of(context).size.width / 2,
                 ),
-                Container(
-                    padding: EdgeInsets.only(
-                      top: 15,
-                      bottom: 26,
-                      right: MediaQuery.of(context).size.width / 4,
-                    ),
-                    //color: Vx.red500,
-                    //width: MediaQuery.of(context).size.width ,
-                    alignment: Alignment.center,
-                    child: "Groups"
-                        .text
-                        .xl5
-                        .fontWeight(FontWeight.w400)
-                        .color(Mycolors.textcolorwhite)
-                        .make()),
-              ],
-            ),
+                //color: Vx.red500,
+                //width: MediaQuery.of(context).size.width ,
+                alignment: Alignment.center,
+                child: "Groups"
+                    .text
+                    .xl5
+                    .fontWeight(FontWeight.w400)
+                    .color(Mycolors.textcolorwhite)
+                    .make()),
             SizedBox(
               height: 10,
             ),
