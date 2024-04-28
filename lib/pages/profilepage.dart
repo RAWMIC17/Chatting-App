@@ -4,9 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -165,7 +170,10 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.only(left: 175),
                       height: 33,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, MyRoutes.skillspageRoute);
+                        },
                         child: Icon(
                           CupertinoIcons.right_chevron,
                         ),
@@ -314,8 +322,8 @@ class ProfilePage extends StatelessWidget {
                       content: "Logged Out Successfully".text.make(),
                       duration: Duration(milliseconds: 1200),
                     ));
-                    await Future.delayed(Duration(milliseconds: 900));
-                    await Navigator.pushNamed(context, MyRoutes.loginRoute);
+                    await Future.delayed(Duration(milliseconds: 500));
+                    await Navigator.pushNamedAndRemoveUntil(context, MyRoutes.loginRoute,(Route<dynamic> route) => false);
                   },
                   child: Row(
                     children: [

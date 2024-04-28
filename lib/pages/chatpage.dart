@@ -16,7 +16,7 @@ class ChatPage extends StatelessWidget {
         backgroundColor: Vx.black,
         leading: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.chathomescreenpageRoute);
+              Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
             },
             icon: Icon(
               CupertinoIcons.left_chevron,

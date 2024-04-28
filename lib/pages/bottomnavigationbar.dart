@@ -21,7 +21,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   List<Widget> widgetList = const [
     CallsPage(),
     ChatHomeScreenPage(),
-    GroupPage()
+    //GroupPage()
     // ProfilePage(),
     // Text("Calls", style: TextStyle(fontSize: 40),),
     // Text("Chats", style: TextStyle(fontSize: 40),),
@@ -60,16 +60,19 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               label: 'Messages',
               //backgroundColor: Colors.yellow
             ),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.group_solid),
-            label: "groups"),
+            // BottomNavigationBarItem(icon: Icon(CupertinoIcons.group_solid),
+            // label: "groups"),
             BottomNavigationBarItem(
               icon: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Navigator.pushNamed(context, MyRoutes.profilepageRoute);
                 },
-                child: Icon(
-                  CupertinoIcons.person_alt,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                  child: Icon(
+                    CupertinoIcons.person_alt,
+                  ),
                 ),
               ),
               label: 'Profile',

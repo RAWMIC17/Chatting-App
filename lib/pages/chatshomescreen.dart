@@ -32,62 +32,26 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
     // var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        // bottomNavigationBar: BottomNavigationBar(
-        //   elevation: 50,
-        //   selectedItemColor: Vx.black,
-        //   unselectedItemColor: Vx.gray500,
-        //   iconSize: 26,
-        //   currentIndex: myindex,
-        //   onTap: (index) {
-        //     setState(() {
-        //       myindex = index;
-        //     });
-        //   },
-        //   items: const <BottomNavigationBarItem>[
-        //     BottomNavigationBarItem(
-        //       //activeIcon: ,
-        //       icon: Icon(
-        //         Icons.phone_in_talk_rounded,
-        //       ),
-        //       label: 'Calls',
-        //       //backgroundColor: Colors.green
+        // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+        // floatingActionButton: Padding(
+        //   padding: const EdgeInsets.only(top: 15),
+        //   child: FloatingActionButton(
+        //     elevation: 5,
+        //     backgroundColor: Vx.black,
+        //     splashColor: Vx.gray600,
+        //     shape:
+        //         RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        //     onPressed: () {
+        //       Future.delayed(Duration(milliseconds: 300));
+        //       Navigator.pushNamed(context, MyRoutes.notificationRoute);
+        //     },
+        //     child: Icon(
+        //       Icons.notifications_active_rounded,
+        //       color: Vx.white,
+        //       size: 30,
         //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(
-        //         CupertinoIcons.chat_bubble_2_fill,
-        //       ),
-        //       label: 'Messages',
-        //       //backgroundColor: Colors.yellow
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(
-        //         CupertinoIcons.person_alt,
-        //       ),
-        //       label: 'Profile',
-        //       //backgroundColor: Colors.blue,
-        //     ),
-        //   ],
+        //   ),
         // ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: FloatingActionButton(
-            elevation: 5,
-            backgroundColor: Vx.black,
-            splashColor: Vx.gray600,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            onPressed: () {
-              Future.delayed(Duration(milliseconds: 300));
-              Navigator.pushNamed(context, MyRoutes.notificationRoute);
-            },
-            child: Icon(
-              Icons.notifications_active_rounded,
-              color: Vx.white,
-              size: 30,
-            ),
-          ),
-        ),
         backgroundColor: Mycolors.backgroundcolor,
         body: Column(
           children: [

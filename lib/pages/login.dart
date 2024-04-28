@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       });
 
       await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
+      await Navigator.pushNamedAndRemoveUntil(context, MyRoutes.bottomnavigationbarRoute,(Route<dynamic> route) => false);
 
       setState(() {
         changebutton = false;
@@ -211,8 +211,9 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     Container(
                                       //color: Colors.red,
+                                      margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(
-                                          top: 40, left: 15, right: 15),
+                                          top: 40, left: 15, right: 15,bottom: 10),
                                       height: 100,
                                       width: 356,
                                       child: ElevatedButton(

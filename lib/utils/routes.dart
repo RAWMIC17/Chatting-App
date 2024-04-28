@@ -8,4 +8,5 @@ class MyRoutes{
   static String bottomnavigationbarRoute = "/bottomnavigationbar";
   static String editpageRoute = "/editpage";
   static String chatpageRoute = "/chatpage";
+  static String skillspageRoute = "/skillspage";
 }
