@@ -1,5 +1,5 @@
 import 'package:chatting_app_1/pages/callspage.dart';
-import 'package:chatting_app_1/pages/chatpage.dart';
+import 'package:chatting_app_1/pages/chatshomescreen.dart';
 import 'package:chatting_app_1/pages/groups.dart';
 import 'package:chatting_app_1/pages/profilepage.dart';
 import 'package:chatting_app_1/utils/routes.dart';
@@ -20,7 +20,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
 
   List<Widget> widgetList = const [
     CallsPage(),
-    ChatPage(),
+    ChatHomeScreenPage(),
     GroupPage()
     // ProfilePage(),
     // Text("Calls", style: TextStyle(fontSize: 40),),

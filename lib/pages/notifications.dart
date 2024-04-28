@@ -14,10 +14,13 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   int myindex = 1;
+  bool ispressed = false;
 
-  // void clearall() {
-  //   "Cleared".text.make();
-  // }
+  void clearall() {
+    setState(() {
+      ispressed = !ispressed;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,14 +127,20 @@ class _NotificationPageState extends State<NotificationPage> {
                               child: "System Notifications".text.xl2.make()),
                           Container(
                             height: 30,
-                            width: 100,
+                            width: 112,
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  // clearall();
+                                  clearall();
                                 });
                               },
-                              child: "Clear All".text.make(),
+                              child: ispressed? "Clear All".text.size(13).make():Row(
+                                //mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(Icons.check,color: Vx.white,size: 18,),
+                                  "Cleared".text.size(13).make(),
+                                ],
+                              ),
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStatePropertyAll(Vx.purple500),
@@ -147,15 +156,13 @@ class _NotificationPageState extends State<NotificationPage> {
                         ],
                       ),
                     ),
-                    Column(
-                      children: [],
-                    ),
                   ],
                 ),
                 decoration: BoxDecoration(
                     color: Vx.white,
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20))),
+                        BorderRadius.vertical(top: Radius.circular(20))
+                        ),
               ),
             ),
           ],

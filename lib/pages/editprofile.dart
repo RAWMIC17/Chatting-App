@@ -15,12 +15,12 @@ class _EditPageState extends State<EditPage> {
   bool _passwordvisible = false;
   final _formkey = GlobalKey<FormState>();
   bool changebutton = false;
-  var snackBar = SnackBar(content: 
-  Text('Saved successfully!!',
-  style: TextStyle(fontSize: 18),
-  ),
-  duration: Duration(milliseconds: 900),
-  );
+  // var snackBar = SnackBar(content:
+  // Text('Saved successfully!!',
+  // style: TextStyle(fontSize: 18),
+  // ),
+  // duration: Duration(milliseconds: 900),
+  // );
 
   @override
   movetoprofile(BuildContext context) async {
@@ -28,10 +28,9 @@ class _EditPageState extends State<EditPage> {
       setState(() {
         changebutton = true;
       });
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      //ScaffoldMessenger.of(context).showSnackBar(snackBar);
       await Future.delayed(Duration(seconds: 1));
       await Navigator.pushNamed(context, MyRoutes.profilepageRoute);
-
       setState(() {
         changebutton = false;
       });
@@ -370,12 +369,17 @@ class _EditPageState extends State<EditPage> {
                                 8.0), // Adjust the radius as needed
                           ),
                         ),
-                        backgroundColor:
-                            MaterialStatePropertyAll(Vx.purple600)),
+                        backgroundColor: changebutton?
+                            MaterialStatePropertyAll(Vx.green600):MaterialStatePropertyAll(Vx.purple600)),
                     onPressed: () {
                       movetoprofile(context);
                     },
-                    child: "Save Changes"
+                    child: changebutton?"Saved"
+                        .text
+                        .xl
+                        .color(Vx.white)
+                        .fontFamily("Poppins")
+                        .make():"Save Changes"
                         .text
                         .xl
                         .color(Vx.white)

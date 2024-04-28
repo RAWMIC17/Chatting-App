@@ -1,22 +1,35 @@
-import 'package:chatting_app_1/models/callcard.dart';
+import 'package:chatting_app_1/models/chatcard.dart';
+import 'package:chatting_app_1/pages/callspage.dart';
+import 'package:chatting_app_1/pages/profilepage.dart';
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class CallsPage extends StatefulWidget {
-  const CallsPage({super.key});
+class ChatHomeScreenPage extends StatefulWidget {
+  const ChatHomeScreenPage({super.key});
 
   @override
-  State<CallsPage> createState() => _CallsPageState();
+  State<ChatHomeScreenPage> createState() => _ChatHomeScreenPageState();
 }
 
-class _CallsPageState extends State<CallsPage> {
+class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
   int myindex = 1;
+
+  List<Widget> widgetList = const [
+    ChatHomeScreenPage(),
+    CallsPage(),
+    ProfilePage(),
+    // Text("Calls", style: TextStyle(fontSize: 40),),
+    // Text("Chats", style: TextStyle(fontSize: 40),),
+    // Text("Profile", style: TextStyle(fontSize: 40),),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    // var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         // bottomNavigationBar: BottomNavigationBar(
@@ -78,6 +91,7 @@ class _CallsPageState extends State<CallsPage> {
         backgroundColor: Mycolors.backgroundcolor,
         body: Column(
           children: [
+            // Center(child: widgetList[myindex]),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(top: 25, left: 10),
@@ -110,36 +124,24 @@ class _CallsPageState extends State<CallsPage> {
             SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    padding: EdgeInsets.only(
-                      top: 15,
-                      bottom: 26,
-                    ),
-                    //color: Vx.red500,
-                    width: 310,
-                    alignment: Alignment.center,
-                    child: "Calls"
-                        .text
-                        .xl5
-                        .fontWeight(FontWeight.w400)
-                        .color(Mycolors.textcolorwhite)
-                        .make()),
-                // Container(
-                //   padding: EdgeInsets.only(bottom: 8),
-                //   child: TextButton(
-                //       onPressed: () {
-                //         Navigator.pushNamed(context, MyRoutes.groupsRoute);
-                //       },
-                //       child: Icon(
-                //         CupertinoIcons.right_chevron,
-                //         color: Vx.white,
-                //         size: 30,
-                //       )),
-                // )
-              ],
+            Container(
+              //width: MediaQuery.of(context).size.width,
+              child: Container(
+
+                  // color: Vx.red500,
+                  padding: EdgeInsets.only(
+                    top: 15,
+                    bottom: 26,
+                  ),
+                  //color: Vx.red500,
+                  //width: MediaQuery.of(context).size.width/4,
+                  alignment: Alignment.center,
+                  child: "Chats"
+                      .text
+                      .xl5
+                      .fontWeight(FontWeight.w400)
+                      .color(Mycolors.textcolorwhite)
+                      .make()),
             ),
             SizedBox(
               height: 10,
@@ -147,17 +149,17 @@ class _CallsPageState extends State<CallsPage> {
             Expanded(
               child: Container(
                 padding: EdgeInsets.only(top: 10,right: 3,left: 3),
-                decoration: BoxDecoration(
-                    color: Vx.white,
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20))),
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Callcard();
-                  },
-                  itemCount: 10,
-                ),
-              ),
+                  decoration: BoxDecoration(
+                      color: Vx.white,
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(20))),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ChatCard();
+                    },
+                    itemCount: 10,
+                  )),
             ),
           ],
         ),
@@ -165,7 +167,3 @@ class _CallsPageState extends State<CallsPage> {
     );
   }
 }
-
-//bloc
-//provider
-//riverpod

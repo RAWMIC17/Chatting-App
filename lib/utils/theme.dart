@@ -7,6 +7,7 @@ class Mycolors {
   static Color buttoncolor = Vx.white;
   static Color buttoncolor1 = Vx.black;
   static Color textcolorblack = Vx.black;
+  static Color captioncolor = Vx.gray600;
   static Color textcolorwhite = Vx.white;
   static Color textcolorblue = Color(0xFF00C9FF);
   static Color textboxcolor = Color.fromARGB(255, 214, 226, 243);
