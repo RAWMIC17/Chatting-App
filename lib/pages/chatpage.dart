@@ -46,6 +46,7 @@ class ChatPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
+              padding: EdgeInsets.only(right: 8),
               onPressed: () {},
               icon: Icon(
                 Icons.phone,
@@ -60,10 +61,8 @@ class ChatPage extends StatelessWidget {
           Expanded(
               child: Container(
             decoration: BoxDecoration(
-              color: Vx.white,
-                    borderRadius:
-             BorderRadius.vertical(top: Radius.circular(20))
-            ),
+                color: Vx.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
           ))
         ],
       )),

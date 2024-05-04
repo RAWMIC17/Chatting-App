@@ -1,8 +1,16 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:chatting_app_1/utils/pickimage.dart';
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:path/path.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,6 +20,49 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  File? image;
+
+  Future<File> saveImagePermanently(String imagePath) async {
+  final directory = await getApplicationDocumentsDirectory();
+  final name = basename(imagePath);
+  final imagePermanentPath = "${directory.path}/$name";
+
+  // Check if the image file already exists in the permanent directory
+  if (await File(imagePermanentPath).exists()) {
+    // File already exists, return the file path
+    return File(imagePermanentPath);
+  }
+
+  // Copy the image file to the permanent directory
+  return File(imagePath).copy(imagePermanentPath);
+}
+
+ Future<void> pickImage() async {
+  try {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image == null) return;
+    final imagePermanent = await saveImagePermanently(image.path);
+    setState(() {
+      this.image = imagePermanent;
+    });
+  } on PlatformException catch (e) {
+    print('Error selecting image: $e');
+  }
+}
+
+//     Uint8List _image = Uint8List(0);
+//   Future<void> selectImage() async {
+//   try {
+//     Uint8List img = await pickImage(ImageSource.gallery);
+//     setState(() {
+//       _image = img;
+//     });
+//   } catch (e) {
+//     // Handle error, e.g., show a dialog or log the error
+//     print('Error selecting image: $e');
+//   }
+// }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,24 +95,42 @@ class _ProfilePageState extends State<ProfilePage> {
                 alignment: Alignment.topCenter,
                 child: Stack(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Vx.white,
-                      radius: 69,
-                      child: CircleAvatar(
-                        //foregroundColor: Vx.white,
-                        radius: 66,
-                        backgroundImage: AssetImage(
-                          "lib/images/Tony_Stark.jpg",
-                        ),
-                      ),
-                    ),
+                    image != null
+                        ? CircleAvatar(
+                            radius: 69,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                                radius: 66,
+                                child: ClipOval(
+                                    child: Image.file(
+                                  image!,
+                                  height: 150,
+                                  width: 150,
+                                ))),
+                          )
+                        // ? CircleAvatar(
+                        //   radius: 66,
+                        //   backgroundImage: MemoryImage(image! as Uint8List),
+                        // )
+                        : CircleAvatar(
+                            backgroundColor: Vx.white,
+                            radius: 69,
+                            child: CircleAvatar(
+                              //foregroundColor: Vx.white,
+                              radius: 66,
+                              backgroundImage: AssetImage(
+                                "lib/images/Tony_Stark.jpg",
+                              ),
+                            ),
+                          ),
                     Positioned(
                       top: 90,
                       left: 86,
                       child: ElevatedButton(
                         onPressed: () {
+                          pickImage();
                           //int  count = 0;
-                          print("Pressed");
+                          //print("Pressed");
                         },
                         style: ButtonStyle(
                             iconSize: MaterialStatePropertyAll(22),
@@ -323,7 +392,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       duration: Duration(milliseconds: 1200),
                     ));
                     await Future.delayed(Duration(milliseconds: 500));
-                    await Navigator.pushNamedAndRemoveUntil(context, MyRoutes.loginRoute,(Route<dynamic> route) => false);
+                    await Navigator.pushNamedAndRemoveUntil(context,
+                        MyRoutes.loginRoute, (Route<dynamic> route) => false);
                   },
                   child: Row(
                     children: [
