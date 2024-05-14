@@ -1,8 +1,14 @@
+import 'dart:io';
+
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:path/path.dart';
 
 class EditPage extends StatefulWidget {
   const EditPage({super.key});
@@ -15,6 +21,36 @@ class _EditPageState extends State<EditPage> {
   bool _passwordvisible = false;
   final _formkey = GlobalKey<FormState>();
   bool changebutton = false;
+
+  File? image;
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final imagePermanentPath = "${directory.path}/$name";
+
+    // Check if the image file already exists in the permanent directory
+    if (await File(imagePermanentPath).exists()) {
+      // File already exists, return the file path
+      return File(imagePermanentPath);
+    }
+
+    // Copy the image file to the permanent directory
+    return File(imagePath).copy(imagePermanentPath);
+  }
+
+  Future<void> pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imagePermanent = await saveImagePermanently(image.path);
+      setState(() {
+        this.image = imagePermanent;
+      });
+    } on PlatformException catch (e) {
+      print('Error selecting image: $e');
+    }
+  }
   // var snackBar = SnackBar(content:
   // Text('Saved successfully!!',
   // style: TextStyle(fontSize: 18),
@@ -86,7 +122,9 @@ class _EditPageState extends State<EditPage> {
               ),
             ),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  pickImage();
+                },
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll(Colors.transparent),
@@ -369,22 +407,25 @@ class _EditPageState extends State<EditPage> {
                                 8.0), // Adjust the radius as needed
                           ),
                         ),
-                        backgroundColor: changebutton?
-                            MaterialStatePropertyAll(Vx.green600):MaterialStatePropertyAll(Vx.purple600)),
+                        backgroundColor: changebutton
+                            ? MaterialStatePropertyAll(Vx.green600)
+                            : MaterialStatePropertyAll(Vx.purple600)),
                     onPressed: () {
                       movetoprofile(context);
                     },
-                    child: changebutton?"Saved"
-                        .text
-                        .xl
-                        .color(Vx.white)
-                        .fontFamily("Poppins")
-                        .make():"Save Changes"
-                        .text
-                        .xl
-                        .color(Vx.white)
-                        .fontFamily("Poppins")
-                        .make()),
+                    child: changebutton
+                        ? "Saved"
+                            .text
+                            .xl
+                            .color(Vx.white)
+                            .fontFamily("Poppins")
+                            .make()
+                        : "Save Changes"
+                            .text
+                            .xl
+                            .color(Vx.white)
+                            .fontFamily("Poppins")
+                            .make()),
               ),
             )
           ],

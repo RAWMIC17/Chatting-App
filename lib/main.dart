@@ -6,6 +6,7 @@ import 'package:chatting_app_1/pages/editprofile.dart';
 import 'package:chatting_app_1/pages/groups.dart';
 import 'package:chatting_app_1/pages/notifications.dart';
 import 'package:chatting_app_1/pages/profilepage.dart';
+import 'package:chatting_app_1/pages/settingspage.dart';
 import 'package:chatting_app_1/pages/skillspage.dart';
 import 'package:chatting_app_1/utils/firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false, //to remove debug banner
-        initialRoute: MyRoutes.bottomnavigationbarRoute, //changes the default the route
+        initialRoute: MyRoutes.profilepageRoute, //changes the default the route
 
         routes: {
           //"/" is show on screen first by default
@@ -45,6 +46,7 @@ class MainApp extends StatelessWidget {
           MyRoutes.editpageRoute:(context) => EditPage(),
           MyRoutes.chatpageRoute:(context) => ChatPage(),
           MyRoutes.skillspageRoute:(context) => SkillsPage(),
+          MyRoutes.settingspageRoute:(context) => SettingsPage(),
         }
         );
   }

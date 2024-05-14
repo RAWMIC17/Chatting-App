@@ -23,32 +23,32 @@ class _ProfilePageState extends State<ProfilePage> {
   File? image;
 
   Future<File> saveImagePermanently(String imagePath) async {
-  final directory = await getApplicationDocumentsDirectory();
-  final name = basename(imagePath);
-  final imagePermanentPath = "${directory.path}/$name";
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final imagePermanentPath = "${directory.path}/$name";
 
-  // Check if the image file already exists in the permanent directory
-  if (await File(imagePermanentPath).exists()) {
-    // File already exists, return the file path
-    return File(imagePermanentPath);
+    // Check if the image file already exists in the permanent directory
+    if (await File(imagePermanentPath).exists()) {
+      // File already exists, return the file path
+      return File(imagePermanentPath);
+    }
+
+    // Copy the image file to the permanent directory
+    return File(imagePath).copy(imagePermanentPath);
   }
 
-  // Copy the image file to the permanent directory
-  return File(imagePath).copy(imagePermanentPath);
-}
-
- Future<void> pickImage() async {
-  try {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) return;
-    final imagePermanent = await saveImagePermanently(image.path);
-    setState(() {
-      this.image = imagePermanent;
-    });
-  } on PlatformException catch (e) {
-    print('Error selecting image: $e');
+  Future<void> pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imagePermanent = await saveImagePermanently(image.path);
+      setState(() {
+        this.image = imagePermanent;
+      });
+    } on PlatformException catch (e) {
+      print('Error selecting image: $e');
+    }
   }
-}
 
 //     Uint8List _image = Uint8List(0);
 //   Future<void> selectImage() async {
@@ -123,27 +123,27 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                           ),
-                    Positioned(
-                      top: 90,
-                      left: 86,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          pickImage();
-                          //int  count = 0;
-                          //print("Pressed");
-                        },
-                        style: ButtonStyle(
-                            iconSize: MaterialStatePropertyAll(22),
-                            padding: MaterialStatePropertyAll(
-                                const EdgeInsets.only(right: 0)),
-                            elevation: MaterialStatePropertyAll(15),
-                            backgroundColor:
-                                MaterialStatePropertyAll(Vx.purple500),
-                            iconColor: MaterialStatePropertyAll(Vx.white),
-                            shape: MaterialStateProperty.all(CircleBorder())),
-                        child: Icon(Icons.mode_edit_outlined),
-                      ),
-                    )
+                    // Positioned(
+                    //   top: 90,
+                    //   left: 86,
+                    //   child: ElevatedButton(
+                    //     onPressed: () {
+                    //       pickImage();
+                    //       //int  count = 0;
+                    //       //print("Pressed");
+                    //     },
+                    //     style: ButtonStyle(
+                    //         iconSize: MaterialStatePropertyAll(22),
+                    //         padding: MaterialStatePropertyAll(
+                    //             const EdgeInsets.only(right: 0)),
+                    //         elevation: MaterialStatePropertyAll(15),
+                    //         backgroundColor:
+                    //             MaterialStatePropertyAll(Vx.purple500),
+                    //         iconColor: MaterialStatePropertyAll(Vx.white),
+                    //         shape: MaterialStateProperty.all(CircleBorder())),
+                    //     child: Icon(Icons.mode_edit_outlined),
+                    //   ),
+                    // )
                   ],
                 ),
               ),
@@ -354,7 +354,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       padding: EdgeInsets.only(left: 141),
                       height: 33,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, MyRoutes.settingspageRoute);
+                        },
                         child: Icon(
                           CupertinoIcons.right_chevron,
                         ),

@@ -9,4 +9,5 @@ class MyRoutes{
   static String editpageRoute = "/editpage";
   static String chatpageRoute = "/chatpage";
   static String skillspageRoute = "/skillspage";
+  static String settingspageRoute = "/settingspage";
 }

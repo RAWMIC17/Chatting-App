@@ -17,6 +17,8 @@ dependencies:
     sdk: flutter
   flutter_native_splash: ^2.3.10
   velocity_x: ^4.1.2
+  firebase_storage: ^11.7.4
+  url_launcher: ^6.2.6
 
 dev_dependencies:
   flutter_test:
