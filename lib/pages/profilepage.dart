@@ -69,15 +69,16 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Scaffold(
         backgroundColor: Vx.black,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Mycolors.appbarcolor,
           foregroundColor: Vx.white,
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
-            },
-            icon: Icon(CupertinoIcons.left_chevron),
-          ),
+          // leading: IconButton(
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
+          //   },
+          //   icon: Icon(CupertinoIcons.left_chevron),
+          // ),
           title: Container(
               child: "Profile"
                   .text

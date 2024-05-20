@@ -22,7 +22,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
     CallsPage(),
     ChatHomeScreenPage(),
     //GroupPage()
-    // ProfilePage(),
+     ProfilePage(),
     // Text("Calls", style: TextStyle(fontSize: 40),),
     // Text("Chats", style: TextStyle(fontSize: 40),),
     // Text("Profile", style: TextStyle(fontSize: 40),),
@@ -63,21 +63,22 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
             // BottomNavigationBarItem(icon: Icon(CupertinoIcons.group_solid),
             // label: "groups"),
             BottomNavigationBarItem(
-              icon: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: () {
-                  Navigator.pushNamed(context, MyRoutes.profilepageRoute);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
-                  child: Icon(
+              icon: 
+              // GestureDetector(
+              //   behavior: HitTestBehavior.translucent,
+              //   onTap: () {
+              //     Navigator.pushNamed(context, MyRoutes.profilepageRoute);
+              //   },
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(horizontal: 36.0),
+              //     child: 
+                  Icon(
                     CupertinoIcons.person_alt,
                   ),
+                   label: 'Profile',
                 ),
-              ),
-              label: 'Profile',
+              //),
               //backgroundColor: Colors.blue,
-            ),
           ],
         ),
         body: IndexedStack(

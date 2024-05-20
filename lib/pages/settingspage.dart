@@ -59,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.width / 2,
+              height: MediaQuery.of(context).size.width / 1.9,
             ),
             TextButton(
               style: ButtonStyle(splashFactory: NoSplash.splashFactory),
@@ -67,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(left: 15),
-                padding: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 22),
                 //color: Vx.red500,
                 decoration: BoxDecoration(
                     border: Border(
@@ -88,7 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 print("pressed");
               }, //About company page link goes here
               child: Container(
-                padding: EdgeInsets.only(bottom: 15),
+                padding: EdgeInsets.only(bottom: 18),
                 margin: EdgeInsets.only(left: 15, top: 13),
                 //color: Vx.red500,
                 decoration: BoxDecoration(
@@ -99,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   children: [
                     Container(
                       //margin: EdgeInsets.only(left: 15),
-                      child: "About RnpSoft"
+                      child: "About RnPSoft"
                           .text
                           .fontFamily("Poppins")
                           .xl2
@@ -117,51 +117,52 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
-            TextButton(
-              style: ButtonStyle(splashFactory: NoSplash.splashFactory),
-              onPressed: () async {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: "Logged Out Successfully".text.make(),
-                  duration: Duration(milliseconds: 1200),
-                ));
-                await Future.delayed(Duration(milliseconds: 500));
-                await Navigator.pushNamedAndRemoveUntil(context,
-                    MyRoutes.loginRoute, (Route<dynamic> route) => false);
-              },
-              child: Container(
-                margin: EdgeInsets.only(top: 15, left: 5),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 13),
-                      //color: Vx.red500,
-                      child: Icon(
-                        Icons.power_settings_new_rounded,
-                        color: Vx.white,
-                        size: 31,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: "Logout"
-                          .text
-                          .fontFamily("Poppins")
-                          .xl2
-                          .fontWeight(FontWeight.w300)
-                          .color(Mycolors.textcolorwhite)
-                          .make(),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // TextButton(
+            //   style: ButtonStyle(splashFactory: NoSplash.splashFactory),
+            //   onPressed: () async {
+            //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            //       content: "Logged Out Successfully".text.make(),
+            //       duration: Duration(milliseconds: 1200),
+            //     ));
+            //     await Future.delayed(Duration(milliseconds: 500));
+            //     await Navigator.pushNamedAndRemoveUntil(context,
+            //         MyRoutes.loginRoute, (Route<dynamic> route) => false);
+            //   },
+            //   child: Container(
+            //     margin: EdgeInsets.only(top: 15, left: 5),
+            //     child: Row(
+            //       children: [
+            //         Container(
+            //           margin: EdgeInsets.only(left: 13),
+            //           //color: Vx.red500,
+            //           child: Icon(
+            //             Icons.power_settings_new_rounded,
+            //             color: Vx.white,
+            //             size: 31,
+            //           ),
+            //         ),
+            //         Container(
+            //           margin: EdgeInsets.only(left: 15),
+            //           child: "Logout"
+            //               .text
+            //               .fontFamily("Poppins")
+            //               .xl2
+            //               .fontWeight(FontWeight.w300)
+            //               .color(Mycolors.textcolorwhite)
+            //               .make(),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             //SizedBox(height: MediaQuery.of(context).size.width/2,),
             Container(
+                //padding: EdgeInsets.only(top: 20),
                 margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.width / 1.5),
+                    top: MediaQuery.of(context).size.width / 1.25),
                 // height: MediaQuery.of(context).size.width/2,
                 //color: Colors.red,
-                child: "© 2024 RnpSoft All Rights Reserved"
+                child: "© 2024 RnPSoft All Rights Reserved"
                     .text
                     .color(Mycolors.textcolorwhite)
                     .fontFamily("Poppins")

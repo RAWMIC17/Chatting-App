@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,6 +61,98 @@ class _SkillsPageState extends State<SkillsPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Vx.black,
+        floatingActionButton: Container(
+          height: 45,
+          width: 125,
+          child: FloatingActionButton.extended(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => SimpleDialog(
+                  title: "Add Skill"
+                      .text
+                      .fontFamily("Poppins")
+                      .wide
+                      .color(Mycolors.textcolorwhite)
+                      .make()
+                      .centered(),
+                  backgroundColor: Mycolors.appbarcolor,
+                  //shadowColor: Colors.teal,
+                  //surfaceTintColor: Colors.amber,
+                  children: [SizedBox(height: 20,),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 25),
+                      child: TextField(
+                        cursorColor: Mycolors.textcolorblack,
+                        decoration: InputDecoration(
+                            fillColor: Mycolors.textcolorwhite,
+                            isDense: true,
+                            filled: true,
+                            contentPadding: EdgeInsets.all(12),
+                            hintText: "Type Skill here",
+                            hintStyle: TextStyle(
+                              fontFamily: "Poppins",
+                            ),
+                            focusedBorder:OutlineInputBorder(
+                              borderSide: const BorderSide(color: Vx.purple500, width: 1.0),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ), 
+                            enabledBorder:OutlineInputBorder(
+                            borderSide: const BorderSide(color: Vx.black, width: 1.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            ),
+                        style: TextStyle(
+                          //backgroundColor: Mycolors.textcolorblack,
+                          fontFamily: "Poppins",
+                          color: Mycolors.textcolorblack,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 25,),
+                    Container(margin: EdgeInsets.symmetric(horizontal: 25),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            //Function to add skills goes here 
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: "Skill added successfully".text.make(),
+                      duration: Duration(milliseconds: 1200),
+                    ));
+                          },
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll(
+                                  Mycolors.purplecolor),
+                                  shape:MaterialStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          10.0), // Adjust the radius as needed
+                    ),
+                  ),),
+                          child: "Add"
+                              .text
+                              .color(Mycolors.textcolorwhite)
+                              .fontFamily("Poppins")
+                              .lg
+                              .make()),
+                    )
+                  ],
+                ),
+              );
+            },
+            label: "Add Skill".text.lg.fontFamily("Poppins").color(Mycolors.textcolorwhite).make(),
+            backgroundColor: Mycolors.purplecolor,
+            //foregroundColor: Mycolors.textcolorblack,
+            icon: Icon(
+              CupertinoIcons.add,
+              size: 20,
+              color: Mycolors.textcolorwhite,
+            ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(150))),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: Mycolors.appbarcolor,
           foregroundColor: Vx.white,
@@ -103,7 +197,7 @@ class _SkillsPageState extends State<SkillsPage> {
                       borderRadius: BorderRadius.circular(40)),
                   focusedBorder: OutlineInputBorder(
                       //gapPadding: 20,
-      
+
                       borderSide: const BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
@@ -124,13 +218,15 @@ class _SkillsPageState extends State<SkillsPage> {
                   ),
                   // prefixIconConstraints:
                   //     BoxConstraints(minHeight: 20, maxWidth: 25),
-                  hintText: "Search and Add Skills",
+                  hintText: "Search skills",
                   hintStyle: TextStyle(
-                      color: Mycolors.textcolorwhite,
+                      color: Mycolors.appbarcolor,
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400,
                       height: 1),
                 ),
+                style: TextStyle(
+                    color: Mycolors.textcolorwhite, fontFamily: "Poppins"),
               ),
             ),
             Expanded(

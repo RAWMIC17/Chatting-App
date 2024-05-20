@@ -14,4 +14,5 @@ class Mycolors {
   static Color backgroundcolor = Vx.black;
   static Color appbarcolor = Color(0xFF333333);
   static Color buttongraycolor = Color(0xFF7E7E7E);
+  static Color purplecolor = Vx.purple500;
 }

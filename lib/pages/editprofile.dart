@@ -142,7 +142,7 @@ class _EditPageState extends State<EditPage> {
                     //contentPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width/8),
                     leading: Icon(
                       Icons.mode_edit_outlined,
-                      color: Vx.purple500,
+                      color: Mycolors.purplecolor,
                       size: 27,
                     ),
                     title: "Change Image"
