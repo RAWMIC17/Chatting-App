@@ -66,7 +66,7 @@ class _SettingsPageState extends State<SettingsPage> {
             TextButton(
               style: ButtonStyle(splashFactory: NoSplash.splashFactory),
               onPressed: () {
-                print("Delete pressed");
+                //print("Delete pressed");
                 showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
