@@ -2,6 +2,7 @@ import 'package:chatting_app_1/utils/routes.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -57,19 +58,74 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.width / 1.9,
             ),
             TextButton(
               style: ButtonStyle(splashFactory: NoSplash.splashFactory),
-              onPressed: () {}, //Function to delete account goes here
+              onPressed: () {
+                print("Delete pressed");
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          backgroundColor: Mycolors.appbarcolor,
+                          scrollable: true,
+                          title: Center(
+                              child: Text(
+                            "Delete Account",
+                          )),
+                          titleTextStyle: TextStyle(
+                              color: Mycolors.textcolorwhite,
+                              fontFamily: "Poppins",
+                              fontSize: 28),
+                          content: Text(
+                              "Do you really want to delete your account?"),
+                          contentTextStyle: TextStyle(
+                            color: Mycolors.textcolorwhite,
+                            fontSize: 15,
+                            letterSpacing: 1,
+                            fontFamily: "Poppins",
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                //Delete Account fucntions goes here
+                              },
+                              child: Text(
+                                "Yes",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    color: Mycolors.textcolorwhite,
+                                    fontSize: 18),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "No",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    color: Mycolors.textcolorwhite,
+                                    fontSize: 18),
+                              ),
+                            )
+                          ],
+                          actionsAlignment: MainAxisAlignment.spaceBetween,
+                          //titlePadding: EdgeInsets.symmetric(horizontal: 20),
+                          //contentPadding: EdgeInsets.symmetric(horizontal: -20),
+                        ));
+              }, //Function to delete account goes here
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(left: 15),
                 padding: EdgeInsets.only(bottom: 22),
                 //color: Vx.red500,
                 decoration: BoxDecoration(
+                    //color: Vx.red500,
                     border: Border(
                         bottom: BorderSide(color: Vx.white, width: 0.2))),
                 child: "Delete Account"
@@ -92,6 +148,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 margin: EdgeInsets.only(left: 15, top: 13),
                 //color: Vx.red500,
                 decoration: BoxDecoration(
+                    //color: Vx.red500,
                     border: Border(
                         bottom: BorderSide(color: Vx.white, width: 0.2))),
                 child: Row(
@@ -117,45 +174,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
-            // TextButton(
-            //   style: ButtonStyle(splashFactory: NoSplash.splashFactory),
-            //   onPressed: () async {
-            //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            //       content: "Logged Out Successfully".text.make(),
-            //       duration: Duration(milliseconds: 1200),
-            //     ));
-            //     await Future.delayed(Duration(milliseconds: 500));
-            //     await Navigator.pushNamedAndRemoveUntil(context,
-            //         MyRoutes.loginRoute, (Route<dynamic> route) => false);
-            //   },
-            //   child: Container(
-            //     margin: EdgeInsets.only(top: 15, left: 5),
-            //     child: Row(
-            //       children: [
-            //         Container(
-            //           margin: EdgeInsets.only(left: 13),
-            //           //color: Vx.red500,
-            //           child: Icon(
-            //             Icons.power_settings_new_rounded,
-            //             color: Vx.white,
-            //             size: 31,
-            //           ),
-            //         ),
-            //         Container(
-            //           margin: EdgeInsets.only(left: 15),
-            //           child: "Logout"
-            //               .text
-            //               .fontFamily("Poppins")
-            //               .xl2
-            //               .fontWeight(FontWeight.w300)
-            //               .color(Mycolors.textcolorwhite)
-            //               .make(),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            //SizedBox(height: MediaQuery.of(context).size.width/2,),
             Container(
                 //padding: EdgeInsets.only(top: 20),
                 margin: EdgeInsets.only(
