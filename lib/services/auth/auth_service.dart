@@ -32,6 +32,7 @@ class AuthService {
 
   // sign out
   Future<void> signOut() async {
+    await Future.delayed(Duration(milliseconds: 800));
     return await _auth.signOut();
   }
 

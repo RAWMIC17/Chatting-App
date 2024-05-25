@@ -135,9 +135,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     CircleAvatar(
                       backgroundColor: Vx.white,
-                      radius: 69,
+                      radius: 70,
                       child: CircleAvatar(
-                        radius: 66,
+                        radius: 67,
                         backgroundImage: _profileImage != null
                             ? FileImage(_profileImage!)
                             : _profileImageUrl != null
@@ -147,12 +147,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     Positioned(
-                      top: 90,
-                      left: 86,
+                      top: 94,
+                      left: 82,
                       child: ElevatedButton(
                         onPressed: _pickImage,
                         style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Vx.white),
+                          iconSize: WidgetStatePropertyAll(20),
+                          iconColor: WidgetStatePropertyAll(Vx.white),
+                          backgroundColor: MaterialStatePropertyAll(Mycolors.purplecolor),
                           shape: MaterialStateProperty.all(CircleBorder()),
                         ),
                         child: Icon(Icons.mode_edit_outlined),
@@ -383,72 +385,75 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 18,),
-              // Container(
-              //   padding: EdgeInsets.only(
-              //     bottom: 15,
-              //   ),
-              //   width: 345,
-              //   height: 49,
-              //   // decoration: BoxDecoration(
-              //   //   border: Border(
-              //   //     bottom: BorderSide(width: 1, color: Mycolors.appbarcolor),
-              //   //   ),
-              //   // ),
-              //   child: InkWell(
-              //     onTap: () async {
-              //       widget.logout;
-              //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              //         content: "Logged Out Successfully".text.make(),
-              //         duration: Duration(milliseconds: 1200),
-              //       ));
-              //       await Future.delayed(Duration(milliseconds: 500));
-              //       await Navigator.pushNamedAndRemoveUntil(context,
-              //           MyRoutes.loginRoute, (Route<dynamic> route) => false);
-              //     },
-              //     child: Row(
-              //       children: [
-              //         Container(
-              //           padding: EdgeInsets.only(left: 10, right: 12),
-              //           //color: Vx.red500,
-              //           child: Icon(
-              //             Icons.power_settings_new_rounded,
-              //             color: Vx.white,
-              //             size: 31,
-              //           ),
-              //         ),
-              //         Container(
-              //           padding: EdgeInsets.only(left: 6, top: 5),
-              //           child: "Logout"
-              //               .text
-              //               .fontFamily("Poppins")
-              //               .xl2
-              //               .fontWeight(FontWeight.w300)
-              //               .color(Mycolors.textcolorwhite)
-              //               .make(),
-              //         ),
-              //         // Container(
-              //         //   padding: EdgeInsets.only(left: 141),
-              //         //   height: 33,
-              //         //   child: ElevatedButton(
-              //         //     onPressed: () {},
-              //         //     child: Icon(
-              //         //       CupertinoIcons.right_chevron,
-              //         //     ),
-              //         //     style: ButtonStyle(
-              //         //         //alignment: Alignment.centerRight,
-              //         //         elevation: MaterialStatePropertyAll(15),
-              //         //         shape: MaterialStateProperty.all(CircleBorder()),
-              //         //         backgroundColor:
-              //         //             MaterialStatePropertyAll(Mycolors.appbarcolor),
-              //         //         iconColor: MaterialStatePropertyAll(Vx.gray300),
-              //         //         iconSize: MaterialStatePropertyAll(17)),
-              //         //   ),
-              //         // ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+              SizedBox(
+                height: 18,
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  bottom: 15,
+                ),
+                width: 345,
+                height: 49,
+                // decoration: BoxDecoration(
+                //   border: Border(
+                //     bottom: BorderSide(width: 1, color: Mycolors.appbarcolor),
+                //   ),
+                // ),
+                child: InkWell(
+                  onTap: widget.logout,
+                  // () async {
+                  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  //     content: "Logged Out Successfully".text.make(),
+                  //     duration: Duration(milliseconds: 1200),
+                  //   ));
+                  //   await widget.logout;
+                  //   // await Future.delayed(Duration(milliseconds: 500));
+                  //   // await Navigator.pushNamedAndRemoveUntil(context,
+                  //   //     MyRoutes.loginRoute, (Route<dynamic> route) => false);
+                  // },
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 12),
+                        //color: Vx.red500,
+                        child: Icon(
+                          Icons.power_settings_new_rounded,
+                          color: Vx.white,
+                          size: 31,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 6, top: 5),
+                        child: "Logout"
+                            .text
+                            .fontFamily("Poppins")
+                            .xl2
+                            .fontWeight(FontWeight.w300)
+                            .color(Mycolors.textcolorwhite)
+                            .make(),
+                      ),
+                      // Container(
+                      //   padding: EdgeInsets.only(left: 141),
+                      //   height: 33,
+                      //   child: ElevatedButton(
+                      //     onPressed: () {},
+                      //     child: Icon(
+                      //       CupertinoIcons.right_chevron,
+                      //     ),
+                      //     style: ButtonStyle(
+                      //         //alignment: Alignment.centerRight,
+                      //         elevation: MaterialStatePropertyAll(15),
+                      //         shape: MaterialStateProperty.all(CircleBorder()),
+                      //         backgroundColor:
+                      //             MaterialStatePropertyAll(Mycolors.appbarcolor),
+                      //         iconColor: MaterialStatePropertyAll(Vx.gray300),
+                      //         iconSize: MaterialStatePropertyAll(17)),
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 30,
               ),

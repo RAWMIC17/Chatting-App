@@ -23,15 +23,27 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){
-          Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CreateGroupPage()),
-                );
-        },child: Icon(CupertinoIcons.group,color: Mycolors.textcolorwhite,size: 30,),backgroundColor: Mycolors.purplecolor,shape: CircleBorder(),),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CreateGroupPage()),
+            );
+          },
+          child: Icon(
+            CupertinoIcons.group,
+            color: Mycolors.textcolorwhite,
+            size: 30,
+          ),
+          backgroundColor: Mycolors.purplecolor,
+          shape: CircleBorder(),
+        ),
         backgroundColor: Mycolors.backgroundcolor,
         body: Column(
           children: [
+            SizedBox(
+              height: 10,
+            ),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(top: 15, left: 10),
@@ -63,14 +75,21 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
               alignment: Alignment.center,
               child: "Chats"
                   .text
-                  .xl5.fontFamily("Poppins")
+                  .xl5
+                  .fontFamily("Poppins")
                   .fontWeight(FontWeight.w400)
                   .color(Mycolors.textcolorwhite)
                   .make(),
             ),
-            //SizedBox(height: 10),
+            SizedBox(height: 10),
             Expanded(
-              child: Container(padding: EdgeInsets.only(top: 8),decoration: BoxDecoration(color: Vx.white,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),child: _buildUserList()),
+              child: Container(
+                  padding: EdgeInsets.only(top: 8),
+                  decoration: BoxDecoration(
+                      color: Vx.white,
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(20))),
+                  child: _buildUserList()),
             ),
           ],
         ),

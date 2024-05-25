@@ -41,34 +41,34 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Align(
-            alignment: Alignment.centerRight,
-            child: const Text("Logout",
-                style: TextStyle(color: Colors.white, fontFamily: "Poppins")),
-          ),
-          backgroundColor: Colors.black,
-          actions: [
-            IconButton(
-              onPressed: widget.logout,
-              icon: Icon(Icons.logout),
-              color: Mycolors.textcolorblack,
-              style: ButtonStyle(
-                  backgroundColor:
-                      WidgetStatePropertyAll(Mycolors.textcolorwhite)),
-            )
-            // GestureDetector(
-            //     onTap: widget.logout,
-            //     child: Padding(
-            //       padding: const EdgeInsets.only(right: 20),
-            //       child: Icon(
-            //         Icons.logout,
-            //         color: Colors.white,
+        // appBar: AppBar(
+        //   title: Align(
+        //     alignment: Alignment.centerRight,
+        //     child: const Text("Logout",
+        //         style: TextStyle(color: Colors.white, fontFamily: "Poppins")),
+        //   ),
+        //   backgroundColor: Colors.black,
+        //   actions: [
+        //     IconButton(
+        //       onPressed: widget.logout,
+        //       icon: Icon(Icons.logout),
+        //       color: Mycolors.textcolorblack,
+        //       style: ButtonStyle(
+        //           backgroundColor:
+        //               WidgetStatePropertyAll(Mycolors.textcolorwhite)),
+        //     )
+        //     // GestureDetector(
+        //     //     onTap: widget.logout,
+        //     //     child: Padding(
+        //     //       padding: const EdgeInsets.only(right: 20),
+        //     //       child: Icon(
+        //     //         Icons.logout,
+        //     //         color: Colors.white,
 
-            //       ),
-            //     ))
-          ],
-        ),
+        //     //       ),
+        //     //     ))
+        //   ],
+        // ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           elevation: 50,

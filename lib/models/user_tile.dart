@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class UserTile extends StatelessWidget {
   final String text;
@@ -18,14 +19,15 @@ class UserTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(elevation: 5,
+      child: Card(elevation: 3,
+      //borderOnForeground: false,
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Vx.white,
             borderRadius: BorderRadius.circular(12),
           ),
           //margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(9),
           child: Row(
             children: [
               // Profile image

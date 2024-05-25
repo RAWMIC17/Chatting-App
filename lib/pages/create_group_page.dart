@@ -1,6 +1,8 @@
 import 'package:chatting_app_1/services/chat/chat_service.dart';
+import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CreateGroupPage extends StatefulWidget {
   @override
@@ -15,22 +17,32 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Vx.black,
       appBar: AppBar(
-        title: Text(
-          "Create Group",
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Colors.grey,
+        centerTitle: true,
+        title: "Create Group"
+            .text
+            .fontFamily("Poppins")
+            .color(Mycolors.textcolorwhite)
+            .make(),
+        backgroundColor: Mycolors.appbarcolor,
+        iconTheme: IconThemeData(color: Mycolors.textcolorwhite),
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              style: TextStyle(fontFamily: "Poppins",color: Mycolors.textcolorwhite),
               controller: _groupNameController,
-              decoration: InputDecoration(
-                labelText: "Group Name",
-              ),
+              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+              //fillColor: Vx.white,
+                  labelText: "Group Name",
+                  labelStyle: TextStyle(fontFamily: "Poppins",fontSize: 18,),
+                  hintText: "Enter a Group Name...",
+                  hintStyle: TextStyle(fontFamily: "Poppins", fontSize: 14,color: Mycolors.buttongraycolor),
+                  //errorText: "Group name empty"
+                  ),
             ),
           ),
           Expanded(
@@ -57,9 +69,12 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
                     var userName = user['username'];
                     var userEmail = user['email'];
                     return ListTile(
-                      title: Text(userName),
-                      subtitle: Text(userEmail),
+                      title: Text(userName,style: TextStyle(fontFamily: "Poppins",color: Mycolors.textcolorwhite,fontSize: 17),),
+                      subtitle: Text(userEmail,style: TextStyle(fontFamily: "Poppins",),),
                       trailing: Checkbox(
+                        activeColor: Mycolors.purplecolor,
+                        splashRadius: 20,
+                        visualDensity: VisualDensity.comfortable,
                         value: selectedUserIds.contains(userId),
                         onChanged: (isSelected) {
                           setState(() {
@@ -81,7 +96,16 @@ class _CreateGroupPageState extends State<CreateGroupPage> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: _createGroup,
-              child: Text("Create Group"),
+              child: "Create Group".text.fontFamily("Poppins").color(Mycolors.textcolorwhite).size(16).make(),
+              style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                  Mycolors.purplecolor),
+                                  shape:WidgetStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          10.0), // Adjust the radius as needed
+                    ),
+                  ),),
             ),
           ),
         ],
