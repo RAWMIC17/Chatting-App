@@ -16,10 +16,10 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(15.0),
         color: isCurrentUser ? Colors.green : Colors.grey.shade500,
       ),
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(15.0),
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,9 +28,9 @@ class ChatBubble extends StatelessWidget {
             Text(
               username!,
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Poppins"),
             ),
           SizedBox(
               height: username != null
@@ -38,7 +38,7 @@ class ChatBubble extends StatelessWidget {
                   : 0), // Add spacing if username is displayed
           Text(
             message,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontFamily: "Poppins"),
           ),
         ],
       ),

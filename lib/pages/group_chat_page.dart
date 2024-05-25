@@ -1,8 +1,12 @@
 import 'package:chatting_app_1/models/chat_bubble.dart';
 import 'package:chatting_app_1/models/my_textfield.dart';
+import 'package:chatting_app_1/pages/bottomnavigationbar.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
+import 'package:chatting_app_1/utils/theme.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class GroupChatPage extends StatefulWidget {
   final String groupId;
@@ -37,7 +41,20 @@ class _GroupChatPageState extends State<GroupChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.groupName),
+        title: widget.groupName.text.color(Mycolors.textcolorwhite).fontFamily("Poppins").make(),
+        backgroundColor: Mycolors.backgroundcolor,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BottomNavigationBarPage()));
+            },
+            icon: Icon(
+              CupertinoIcons.arrow_left,
+              color: Mycolors.textcolorwhite,
+            )),
       ),
       body: Column(
         children: [
@@ -91,22 +108,25 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 50.0, right: 10.0),
+      padding: const EdgeInsets.only(bottom: 15.0, ),
       child: Row(
         children: [
           Expanded(
             child: MyTextField(
               controller: _messageController,
-              hintText: "Type a message",
+              hintText: "Type a message. . .",
               obscureText: false,
             ),
           ),
-          Container(
+          Container(margin: EdgeInsets.only(right: 12),
             decoration:
                 BoxDecoration(color: Colors.green, shape: BoxShape.circle),
             child: IconButton(
               onPressed: _sendMessage,
-              icon: Icon(Icons.arrow_upward, color: Colors.white),
+              icon: Icon(
+                Icons.send,
+                color: Colors.white,
+              ),
             ),
           ),
         ],

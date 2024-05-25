@@ -86,7 +86,7 @@ class _CallsPageState extends State<CallsPage> {
                     alignment: Alignment.center,
                     child: "Calls"
                         .text
-                        .xl5
+                        .xl5.fontFamily("Poppins")
                         .fontWeight(FontWeight.w400)
                         .color(Mycolors.textcolorwhite)
                         .make()),

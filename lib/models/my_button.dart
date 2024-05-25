@@ -1,3 +1,4 @@
+import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -13,9 +14,14 @@ class MyButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-            color: Colors.grey, borderRadius: BorderRadius.circular(15)),
-        child: Center(child: Text(text)),
-        padding: EdgeInsets.all(25),
+            color: Mycolors.purplecolor,
+            borderRadius: BorderRadius.circular(15)),
+        child: Center(
+            child: Text(
+          text,
+          style: TextStyle(fontSize: 25, color: Mycolors.textcolorwhite),
+        )),
+        padding: EdgeInsets.all(15),
         margin: EdgeInsets.symmetric(horizontal: 25),
       ),
     );

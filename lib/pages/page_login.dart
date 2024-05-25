@@ -60,7 +60,7 @@ class Login_Page extends StatelessWidget {
               ),
               // welcome back message----------------------------
               CText(
-                "Welcome Back, You have been missed",
+                "Welcome Back, You have been missed!!",
                 color: Colors.white,
               ),
               const SizedBox(
@@ -81,21 +81,21 @@ class Login_Page extends StatelessWidget {
                 hintText: "Password",
                 obscureText: true,
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 35),
               // login button-------------------------------------
               MyButton(
                 text: "LOGIN",
                 onTap: () => login(context),
               ),
               SizedBox(
-                height: 25,
+                height: 35,
               ),
               // register now------------------------------------
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CText(
-                    "New Employee? ",
+                    "New Employee? :  ",
                     color: Colors.white,
                   ),
                   GestureDetector(

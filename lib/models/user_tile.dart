@@ -18,7 +18,7 @@ class UserTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
+      child: Card(elevation: 5,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,

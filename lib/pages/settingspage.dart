@@ -43,12 +43,13 @@ class _SettingsPageState extends State<SettingsPage> {
           backgroundColor: Mycolors.appbarcolor,
           foregroundColor: Vx.white,
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
-            },
-            icon: Icon(CupertinoIcons.left_chevron),
-          ),
+          automaticallyImplyLeading: false,
+          // leading: IconButton(
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
+          //   },
+          //   icon: Icon(CupertinoIcons.left_chevron),
+          // ),
           title: Container(
               child: "Settings"
                   .text

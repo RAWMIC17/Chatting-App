@@ -175,12 +175,13 @@ class _SkillsPageState extends State<SkillsPage> {
           backgroundColor: Mycolors.appbarcolor,
           foregroundColor: Vx.white,
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.profilepageRoute);
-            },
-            icon: Icon(CupertinoIcons.left_chevron),
-          ),
+          automaticallyImplyLeading: false,
+          // leading: IconButton(
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, MyRoutes.profilepageRoute);
+          //   },
+          //   icon: Icon(CupertinoIcons.left_chevron),
+          // ),
           title: Container(
               child: "Skills"
                   .text

@@ -34,7 +34,7 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.only(top: 25, left: 10),
+              padding: EdgeInsets.only(top: 15, left: 10),
               child: "Welcome,"
                   .text
                   .xl2
@@ -70,7 +70,7 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
             ),
             //SizedBox(height: 10),
             Expanded(
-              child: _buildUserList(),
+              child: Container(padding: EdgeInsets.only(top: 8),decoration: BoxDecoration(color: Vx.white,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),child: _buildUserList()),
             ),
           ],
         ),

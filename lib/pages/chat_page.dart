@@ -1,5 +1,6 @@
 import 'package:chatting_app_1/models/chat_bubble.dart';
 import 'package:chatting_app_1/models/my_textfield.dart';
+import 'package:chatting_app_1/pages/bottomnavigationbar.dart';
 import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
 import 'package:chatting_app_1/utils/theme.dart';
@@ -82,8 +83,19 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false,
-        leading: Icon(CupertinoIcons.arrow_left,color: Mycolors.textcolorwhite,),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BottomNavigationBarPage()));
+            },
+            icon: Icon(
+              CupertinoIcons.arrow_left,
+              color: Mycolors.textcolorwhite,
+            )),
         title: Text(
           widget.recieverUserName,
           style: TextStyle(color: Colors.white),
@@ -155,25 +167,29 @@ class _ChatPageState extends State<ChatPage> {
   // build message input
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15.0,),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      padding: const EdgeInsets.only(
+        bottom: 15.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // textfield should take most of the space
           Expanded(
             child: MyTextField(
               controller: _messageController,
-              hintText: "Type a message...",
+              hintText: "Type a message. . .",
               obscureText: false,
               focusNode: myFocusNode,
             ),
           ),
-          Container(margin: EdgeInsets.only(right: 12),
+          Container(
+            margin: EdgeInsets.only(right: 12),
             decoration:
                 BoxDecoration(color: Colors.green, shape: BoxShape.circle),
             child: IconButton(
               onPressed: sendMessage,
               icon: Icon(
-               Icons.send,
+                Icons.send,
                 color: Colors.white,
               ),
             ),

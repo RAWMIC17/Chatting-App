@@ -1,4 +1,5 @@
 import 'package:chatting_app_1/utils/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -17,19 +18,22 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+    return Container(padding: const EdgeInsets.symmetric(horizontal: 10),height: 55,
       child: TextField(
         controller: controller,
         obscureText: obscureText,
         focusNode: focusNode,
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
+          //suffixIcon: Icon(CupertinoIcons.paperclip),
+          border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(70.0),
+          ),
+            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(70)),
                 borderSide:
                     BorderSide(color: Theme.of(context).colorScheme.tertiary)),
             focusedBorder: OutlineInputBorder(
                 borderSide:
-                    BorderSide(color: Theme.of(context).colorScheme.primary)),
+                    BorderSide(color: Theme.of(context).colorScheme.primary),borderRadius: BorderRadius.circular(70.0),),
             fillColor: Colors.white,
             filled: true,
             hintText: hintText,

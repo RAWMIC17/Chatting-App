@@ -2,6 +2,7 @@ import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/pages/callspage.dart';
 import 'package:chatting_app_1/pages/chatshomescreen.dart';
 import 'package:chatting_app_1/pages/profilepage.dart';
+import 'package:chatting_app_1/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,9 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
     CallsPage(),
     ChatHomeScreenPage(),
     //GroupPage()
-    // ProfilePage(),
+    ProfilePage(
+      firestore: FirebaseFirestore.instance,
+    ),
     // Text("Calls", style: TextStyle(fontSize: 40),),
     // Text("Chats", style: TextStyle(fontSize: 40),),
     // Text("Profile", style: TextStyle(fontSize: 40),),
@@ -38,26 +41,32 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
         appBar: AppBar(
           title: Align(
             alignment: Alignment.centerRight,
             child: const Text("Logout",
-                style: TextStyle(
-                  color: Colors.white,
-                )),
+                style: TextStyle(color: Colors.white, fontFamily: "Poppins")),
           ),
           backgroundColor: Colors.black,
           actions: [
-            GestureDetector(
-                onTap: widget.logout,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: Icon(
-                    Icons.logout,
-                    color: Colors.white,
-                  ),
-                ))
+            IconButton(
+              onPressed: widget.logout,
+              icon: Icon(Icons.logout),
+              color: Mycolors.textcolorblack,
+              style: ButtonStyle(
+                  backgroundColor:
+                      WidgetStatePropertyAll(Mycolors.textcolorwhite)),
+            )
+            // GestureDetector(
+            //     onTap: widget.logout,
+            //     child: Padding(
+            //       padding: const EdgeInsets.only(right: 20),
+            //       child: Icon(
+            //         Icons.logout,
+            //         color: Colors.white,
+
+            //       ),
+            //     ))
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -91,23 +100,8 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
             // BottomNavigationBarItem(icon: Icon(CupertinoIcons.group_solid),
             // label: "groups"),
             BottomNavigationBarItem(
-              icon: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProfilePage(
-                          firestore: FirebaseFirestore.instance,
-                        ),
-                      ));
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
-                  child: Icon(
-                    CupertinoIcons.person_alt,
-                  ),
-                ),
+              icon: Icon(
+                CupertinoIcons.person_alt,
               ),
               label: 'Profile',
               //backgroundColor: Colors.blue,

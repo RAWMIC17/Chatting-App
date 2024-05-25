@@ -1,3 +1,4 @@
+import 'package:chatting_app_1/pages/login(deleted).dart';
 import 'package:chatting_app_1/services/auth/auth_gate.dart';
 import 'package:chatting_app_1/utils/firebase_options.dart';
 import 'package:flutter/material.dart';
