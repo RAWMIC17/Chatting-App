@@ -1,11 +1,14 @@
 import 'package:chatting_app_1/models/callcard.dart';
+import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CallsPage extends StatefulWidget {
-  const CallsPage({super.key});
+
+  final AuthService _authService = AuthService();
+   CallsPage({super.key});
 
   @override
   State<CallsPage> createState() => _CallsPageState();
@@ -62,7 +65,10 @@ class _CallsPageState extends State<CallsPage> {
               ),
               //color: Vx.green500,
               //margin: EdgeInsets.all(2),
-              child: "Username"
+              child: widget._authService
+                  .getCurrentUser()
+                  ?.email
+                  .toString()
                   .text
                   .xl3
                   .bold

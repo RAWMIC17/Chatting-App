@@ -34,6 +34,10 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
+  void status() {
+    print("Rawmic");
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -80,18 +84,21 @@ class _SettingsPageState extends State<SettingsPage> {
                           titleTextStyle: TextStyle(
                               color: Mycolors.textcolorwhite,
                               fontFamily: "Poppins",
-                              fontSize: 28),
+                              fontSize: 26),
                           content: Text(
                               "Do you really want to delete your account?"),
                           contentTextStyle: TextStyle(
                             color: Mycolors.textcolorwhite,
-                            fontSize: 15,
-                            letterSpacing: 1,
+                            fontSize: 14,
+                            letterSpacing: 0.7,
                             fontFamily: "Poppins",
                           ),
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  status();
+                                });
                                 //Delete Account fucntions goes here
                               },
                               child: Text(
@@ -142,7 +149,7 @@ class _SettingsPageState extends State<SettingsPage> {
               style: ButtonStyle(splashFactory: NoSplash.splashFactory),
               onPressed: () {
                 _launchUrl(Uri.parse("https://rnpsoft.framer.website/"), true);
-                print("pressed");
+                status();
               }, //About company page link goes here
               child: Container(
                 padding: EdgeInsets.only(bottom: 18),
@@ -167,7 +174,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     Container(
                       child: Image.asset(
-                        "lib/images/image-7.png",
+                        "lib/images/rawmic17.png",
                         scale: 1.8,
                       ),
                     )

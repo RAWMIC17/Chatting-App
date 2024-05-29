@@ -4,6 +4,7 @@ import 'package:chatting_app_1/pages/reviewspage.dart';
 import 'package:chatting_app_1/pages/settingspage.dart';
 import 'package:chatting_app_1/pages/skillspage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/utils/routes.dart';
@@ -112,6 +113,9 @@ class _ProfilePageState extends State<ProfilePage> {
           foregroundColor: Vx.white,
           centerTitle: true,
           automaticallyImplyLeading: false,
+          // systemOverlayStyle:
+          //     SystemUiOverlayStyle(statusBarColor: Colors.black),
+          //forceMaterialTransparency: true,
           // leading: IconButton(
           //   onPressed: () {
           //     Navigator.pushNamed(context, MyRoutes.bottomnavigationbarRoute);
@@ -154,8 +158,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: ButtonStyle(
                           iconSize: WidgetStatePropertyAll(20),
                           iconColor: WidgetStatePropertyAll(Vx.white),
-                          backgroundColor: MaterialStatePropertyAll(Mycolors.purplecolor),
-                          shape: MaterialStateProperty.all(CircleBorder()),
+                          backgroundColor: WidgetStatePropertyAll(Mycolors.purplecolor),
+                          shape: WidgetStatePropertyAll(CircleBorder()),
                         ),
                         child: Icon(Icons.mode_edit_outlined),
                       ),

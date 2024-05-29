@@ -19,6 +19,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
         debugShowCheckedModeBanner: false,
+        
         home: AuthGate(),
         //to remove debug banner
         //initialRoute: MyRoutes.authGate, //changes the default the route
