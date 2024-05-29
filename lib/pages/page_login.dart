@@ -57,7 +57,7 @@ class Login_Page extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      "lib/images/image-7.png",
+                      "lib/images/rawmic17.png",
                       width: 50,
                       height: 50,
                     ),
@@ -89,7 +89,7 @@ class Login_Page extends StatelessWidget {
                 // email textfield---------------------------------
                 MyTextField(
                   controller: _emailcontroller,
-                  hintText: "    E-mail",
+                  hintText: "   E-mail",
                   obscureText: false,
                 ),
                 const SizedBox(
@@ -98,7 +98,7 @@ class Login_Page extends StatelessWidget {
                 // pw textfield ------------------------------------
                 MyTextField(
                   controller: _pwcontroller,
-                  hintText: "    Password",
+                  hintText: "   Password",
                   obscureText: true,
                 ),
                 SizedBox(height: 35),

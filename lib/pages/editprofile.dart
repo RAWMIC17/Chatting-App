@@ -53,12 +53,7 @@ class _EditPageState extends State<EditPage> {
           backgroundColor: Mycolors.appbarcolor,
           foregroundColor: Vx.white,
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.profilepageRoute);
-            },
-            icon: Icon(CupertinoIcons.left_chevron),
-          ),
+          automaticallyImplyLeading: false,
           title: Container(
               child: "Edit Profile"
                   .text
@@ -75,7 +70,7 @@ class _EditPageState extends State<EditPage> {
               //color: Vx.red500,
               width: MediaQuery.of(context).size.width,
               child: CircleAvatar(
-                backgroundColor: Vx.purple500,
+                backgroundColor: Mycolors.purplecolor,
                 radius: 56,
                 child: CircleAvatar(
                   //foregroundColor: Vx.white,
@@ -229,7 +224,7 @@ class _EditPageState extends State<EditPage> {
                 //color: Colors.red,
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                child: "Phone No."
+                child: "Phone Number"
                     .text
                     .fontFamily("Poppins")
                     .fontWeight(FontWeight.w300)
@@ -291,8 +286,10 @@ class _EditPageState extends State<EditPage> {
                     .color(Vx.white)
                     .make()),
             Container(
-              height: 67,
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              //color: Colors.amber,
+              //height: 67,
+              margin: EdgeInsets.symmetric(horizontal: 15,),
+              //padding: EdgeInsets.only(bottom: 70),
               child: TextFormField(
                 //selectionHeightStyle: ,
                 obscureText: !_passwordvisible,
@@ -302,8 +299,9 @@ class _EditPageState extends State<EditPage> {
                     color: Vx.black,
                     fontWeight: FontWeight.bold),
                 cursorColor: Vx.black,
-                decoration: InputDecoration(
-                    //isCollapsed: true,
+                decoration: InputDecoration(errorStyle: TextStyle(fontFamily: "Poppins"),
+                    isCollapsed: true,
+                    contentPadding: EdgeInsets.symmetric(vertical: 2),
                     prefixIcon: Container(
                       padding: EdgeInsets.only(left: 2),
                       child: Icon(
