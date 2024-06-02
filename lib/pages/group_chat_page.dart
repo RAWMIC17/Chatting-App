@@ -1,13 +1,18 @@
 import 'dart:io';
 import 'package:chatting_app_1/models/chat_bubble.dart';
 import 'package:chatting_app_1/models/my_textfield.dart';
+import 'package:chatting_app_1/pages/bottomnavigationbar.dart';
 import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
+import 'package:chatting_app_1/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'dart:math' as math;
 
 class GroupChatPage extends StatefulWidget {
   final String groupId;
@@ -70,14 +75,37 @@ class _GroupChatPageState extends State<GroupChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.groupName),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.attach_file),
-            onPressed: _selectFile,
-          ),
-        ],
+      appBar: AppBar(automaticallyImplyLeading: false,
+      //centerTitle: true,
+        backgroundColor: Mycolors.backgroundcolor,
+        title: Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            widget.groupName.text.color(Mycolors.textcolorwhite).fontFamily("Poppins").make(),
+            " (Group)".text.color(Mycolors.textcolorwhite).make()
+          ],
+        ),
+        // actions: [
+        //   Transform.rotate(
+        //     angle: 220 * math.pi / 180,
+        //     child: IconButton(iconSize: 27,
+        //       icon: Icon(Icons.attach_file_rounded),
+        //       onPressed: _selectFile,
+        //       style: ButtonStyle(),
+        //       color: Vx.white,
+        //     ),
+        //   ),
+        // ],
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BottomNavigationBarPage()));
+            },
+            icon: Icon(
+              CupertinoIcons.arrow_left,
+              color: Mycolors.textcolorwhite,
+            )),
       ),
       body: Column(
         children: [
@@ -120,6 +148,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
                   username: username,
                   isCurrentUser:
                       message['senderID'] == _authService.getCurrentUser()!.uid,
+                      fileUrl: message['fileUrl'], // Include fileUrl
                 );
               },
             );
@@ -131,22 +160,31 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 50.0, right: 10.0),
+      padding: const EdgeInsets.only(bottom: 15.0, ),
       child: Row(
         children: [
           Expanded(
             child: MyTextField(
               controller: _messageController,
-              hintText: "Type a message",
+              hintText: "Type a message. . .",
               obscureText: false,
             ),
           ),
-          Container(
+            Transform.rotate(
+            angle: 220 * math.pi / 180,
+            child: IconButton(iconSize: 27,
+              icon: Icon(Icons.attach_file_rounded),
+              onPressed: _selectFile,
+              style: ButtonStyle(),
+              color: Vx.black,
+            ),
+          ),
+          Container(margin: EdgeInsets.only(right: 12),
             decoration:
                 BoxDecoration(color: Colors.green, shape: BoxShape.circle),
             child: IconButton(
-              onPressed: _sendMessage,
-              icon: Icon(Icons.arrow_upward, color: Colors.white),
+              onPressed: () => _sendMessage(),
+              icon: Icon(Icons.send, color: Colors.white),
             ),
           ),
         ],

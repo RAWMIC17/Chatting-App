@@ -1,12 +1,14 @@
 import 'dart:io';
 import 'package:chatting_app_1/models/chat_bubble.dart';
 import 'package:chatting_app_1/models/my_textfield.dart';
+import 'package:chatting_app_1/pages/bottomnavigationbar.dart';
 import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -100,11 +102,23 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        centerTitle: true,
         backgroundColor: Colors.black,
         title: Text(
           widget.recieverUserName,
           style: TextStyle(color: Colors.white),
         ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BottomNavigationBarPage()));
+            },
+            icon: Icon(
+              CupertinoIcons.arrow_left,
+              color: Mycolors.textcolorwhite,
+            )),
       ),
       body: Column(
         children: [

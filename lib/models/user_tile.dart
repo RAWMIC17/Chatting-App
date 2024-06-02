@@ -18,14 +18,14 @@ class UserTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
+      child: Card(elevation: 3,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
           ),
           //margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(9),
           child: Row(
             children: [
               // Profile image
@@ -49,7 +49,7 @@ class UserTile extends StatelessWidget {
                   children: [
                     Text(
                       text,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Poppins",fontSize: 15),
                     ),
                     if (lastMessage != null)
                       Text(

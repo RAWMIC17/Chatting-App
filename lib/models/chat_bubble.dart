@@ -1,6 +1,7 @@
 import 'package:chatting_app_1/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class ChatBubble extends StatelessWidget {
   final String message;
@@ -22,16 +23,25 @@ class ChatBubble extends StatelessWidget {
           isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         if (username != null)
-          Text(
-            username!,
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Padding(
+            padding: EdgeInsets.only(left: isCurrentUser ? 0 : 10,right: isCurrentUser ? 10 : 0),
+            child: Text(
+              username!,
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, fontFamily: "Poppins"),
+            ),
           ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 4.0),
+          //margin: EdgeInsets.symmetric(vertical: 4.0,horizontal: isCurrentUser ?20:10),
+          margin: EdgeInsets.only(
+              top: 4,
+              bottom: 4,
+              left: isCurrentUser ? 60 : 8,
+              right: isCurrentUser ? 8 : 60),
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
           decoration: BoxDecoration(
             color: isCurrentUser ? Colors.blue[100] : Colors.grey[300],
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(18.0),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,33 +49,36 @@ class ChatBubble extends StatelessWidget {
               Text(
                 message,
                 style: TextStyle(
-                  color: isCurrentUser ? Mycolors.textcolorblack : Mycolors.textcolorblack,
+                  color: isCurrentUser
+                      ? Mycolors.textcolorblack
+                      : Mycolors.textcolorblack,
                 ),
               ),
               if (fileUrl != null)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Sent a file",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins",
-                        color: Colors.black,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () => _openFile(fileUrl!),
-                      child: Text(
-                        "Click to open",
+                GestureDetector(
+                  onTap: () => _openFile(fileUrl!),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Sent a file",
                         style: TextStyle(
-                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
                           fontFamily: "Poppins",
-                          decoration: TextDecoration.underline,
+                          color: isCurrentUser ? Colors.black : Colors.black,
                         ),
                       ),
-                    ),
-                  ],
+                      Text(
+                        "Click to open",
+                        style: TextStyle(
+                          color: Vx.blue700,
+                          fontFamily: "Poppins",
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2.5,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),

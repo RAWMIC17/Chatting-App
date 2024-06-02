@@ -470,7 +470,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     .fontFamily("Poppins")
                     .color(Mycolors.textcolorwhite)
                     .make(),
-              )
+              ),
+              Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                child: "Rawmic"
+                    .text
+                    .fontWeight(FontWeight.w300)
+                    .fontFamily("Poppins")
+                    .color(Mycolors.textcolorblack)
+                    .make(),)
             ],
           ),
         ),
