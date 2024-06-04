@@ -1,6 +1,8 @@
+import 'package:chatting_app_1/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class AddParticipantsDialog extends StatefulWidget {
   final String groupId;
@@ -18,7 +20,13 @@ class _AddParticipantsDialogState extends State<AddParticipantsDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Add Participants'),
+      backgroundColor: Mycolors.backgroundcolor,
+      title: "Add Participants"
+          .text
+          .color(Mycolors.textcolorwhite)
+          .fontFamily("Poppins")
+          .make()
+          .centered(),
       content: StreamBuilder<QuerySnapshot>(
         stream: _chatService.getUsersStream(),
         builder: (context, snapshot) {
@@ -31,7 +39,7 @@ class _AddParticipantsDialogState extends State<AddParticipantsDialog> {
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
             return Center(child: Text("No users found"));
           }
-
+    
           var users = snapshot.data!.docs;
           return ListView.builder(
             shrinkWrap: true,
@@ -42,8 +50,18 @@ class _AddParticipantsDialogState extends State<AddParticipantsDialog> {
               var userName = user['username'];
               var userEmail = user['email'];
               return ListTile(
-                title: Text(userName),
-                subtitle: Text(userEmail),
+                title: Text(
+                  userName,
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      color: Mycolors.textcolorwhite,
+                      fontSize: 16),
+                ),
+                subtitle: Text(
+                  userEmail,
+                  softWrap: false,
+                  style: TextStyle(fontFamily: "Poppins", fontSize: 13),
+                ),
                 trailing: Checkbox(
                   value: selectedUserIds.contains(userId),
                   onChanged: (isSelected) {
@@ -55,6 +73,7 @@ class _AddParticipantsDialogState extends State<AddParticipantsDialog> {
                       }
                     });
                   },
+                  activeColor: Mycolors.purplecolor,
                 ),
               );
             },
@@ -62,13 +81,18 @@ class _AddParticipantsDialogState extends State<AddParticipantsDialog> {
         },
       ),
       actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('Cancel'),
-        ),
-        ElevatedButton(
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: "Cancel".text.fontFamily("Poppins").color(Mycolors.purplecolor).make(),
+            ),
+            ElevatedButton(
           onPressed: _addParticipants,
-          child: Text('Add'),
+          style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Mycolors.purplecolor)),
+          child: "Add".text.fontFamily("Poppins").color(Mycolors.textcolorwhite).make(),
+        ),
+          ],
         ),
       ],
     );

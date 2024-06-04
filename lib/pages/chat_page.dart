@@ -106,7 +106,7 @@ class _ChatPageState extends State<ChatPage> {
         backgroundColor: Colors.black,
         title: Text(
           widget.recieverUserName,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,),
         ),
         leading: IconButton(
             onPressed: () {

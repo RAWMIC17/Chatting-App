@@ -84,41 +84,64 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false,
-      //centerTitle: true,
-        backgroundColor: Mycolors.backgroundcolor,
-        title: Row(mainAxisAlignment: MainAxisAlignment.center,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          //centerTitle: true,
+          backgroundColor: Mycolors.backgroundcolor,
+          title: RichText(
+            textAlign: TextAlign.center,
+            softWrap: false,
+            overflow: TextOverflow.ellipsis,
+            text: TextSpan(
+              style: TextStyle(fontSize: 20),
+              children: [
+                TextSpan(
+                  text: widget.groupName,
+                  style: TextStyle(
+                    color: Mycolors.textcolorwhite,
+                    fontFamily: "Poppins",
+                  ),
+                ),
+                TextSpan(
+                  text: " (Group)",
+                  style: TextStyle(
+                    color: Mycolors.textcolorwhite,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                CupertinoIcons.person_add,
+                color: Vx.white,
+              ),
+              onPressed: _showAddParticipantsDialog,
+            ),
+          ],
+          leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottomNavigationBarPage()));
+              },
+              icon: Icon(
+                CupertinoIcons.arrow_left,
+                color: Mycolors.textcolorwhite,
+              )),
+        ),
+        body: Column(
           children: [
-            widget.groupName.text.color(Mycolors.textcolorwhite).fontFamily("Poppins").make(),
-            " (Group)".text.color(Mycolors.textcolorwhite).make()
+            Expanded(
+              child: _buildMessageList(),
+            ),
+            _buildUserInput(),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.person_add),
-            onPressed: _showAddParticipantsDialog,
-          ),
-        ],
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BottomNavigationBarPage()));
-            },
-            icon: Icon(
-              CupertinoIcons.arrow_left,
-              color: Mycolors.textcolorwhite,
-            )),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: _buildMessageList(),
-          ),
-          _buildUserInput(),
-        ],
       ),
     );
   }
@@ -153,7 +176,7 @@ class _GroupChatPageState extends State<GroupChatPage> {
                   username: username,
                   isCurrentUser:
                       message['senderID'] == _authService.getCurrentUser()!.uid,
-                      fileUrl: message['fileUrl'], // Include fileUrl
+                  fileUrl: message['fileUrl'], // Include fileUrl
                 );
               },
             );
@@ -165,7 +188,9 @@ class _GroupChatPageState extends State<GroupChatPage> {
 
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15.0, ),
+      padding: const EdgeInsets.only(
+        bottom: 10.0,
+      ),
       child: Row(
         children: [
           Expanded(
@@ -175,16 +200,18 @@ class _GroupChatPageState extends State<GroupChatPage> {
               obscureText: false,
             ),
           ),
-            Transform.rotate(
+          Transform.rotate(
             angle: 220 * math.pi / 180,
-            child: IconButton(iconSize: 27,
+            child: IconButton(
+              iconSize: 27,
               icon: Icon(Icons.attach_file_rounded),
               onPressed: _selectFile,
-              style: ButtonStyle(),
+              //style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.red) ),
               color: Vx.black,
             ),
           ),
-          Container(margin: EdgeInsets.only(right: 12),
+          Container(
+            margin: EdgeInsets.only(right: 12),
             decoration:
                 BoxDecoration(color: Colors.green, shape: BoxShape.circle),
             child: IconButton(

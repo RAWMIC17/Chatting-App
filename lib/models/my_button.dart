@@ -20,7 +20,7 @@ class MyButton extends StatelessWidget {
         child: Center(
             child: Text(
           text,
-          style: TextStyle(fontSize: 23, color: Mycolors.textcolorwhite),
+          style: TextStyle(fontSize: 23, color: Mycolors.textcolorwhite,fontFamily: "Poppins"),
         )),
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),

@@ -479,7 +479,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     .fontWeight(FontWeight.w300)
                     .fontFamily("Poppins")
                     .color(Mycolors.textcolorblack)
-                    .make(),)
+                    .make().centered(),)
             ],
           ),
         ),
