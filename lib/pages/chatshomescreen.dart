@@ -208,23 +208,29 @@ class _ChatHomeScreenPageState extends State<ChatHomeScreenPage> {
       Map<String, dynamic> groupData, BuildContext context) {
     String groupId = groupData["groupId"] ?? "";
     String groupName = groupData["groupName"] ?? "Unnamed Group";
+    List<String> userIds = List<String>.from(groupData["userIds"] ?? []);
 
-    return UserTile(
-      text: groupName,
-      lastMessage: groupData["lastMessage"] ?? "",
-      onTap: () {
-        if (groupId.isNotEmpty) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => GroupChatPage(
-                groupId: groupId,
-                groupName: groupName,
+    if (userIds.contains(widget._authService.getCurrentUser()?.uid)) {
+      return UserTile(
+        text: groupName,
+        lastMessage: groupData["lastMessage"] ?? "",
+        onTap: () {
+          if (groupId.isNotEmpty) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => GroupChatPage(
+                  groupId: groupId,
+                  groupName: groupName,
+                ),
               ),
-            ),
-          );
-        }
-      },
-    );
+            );
+          }
+        },
+      );
+    } else {
+      // If the current user is not part of the group, return an empty container
+      return Container();
+    }
   }
 }

@@ -158,4 +158,13 @@ class ChatService {
       return null;
     }
   }
+  Future<void> addParticipantsToGroup(
+      String groupId, List<String> userIds) async {
+    DocumentReference groupChatRef =
+        _firestore.collection('groupChats').doc(groupId);
+
+    await groupChatRef.update({
+      'userIds': FieldValue.arrayUnion(userIds),
+    });
+  }
 }

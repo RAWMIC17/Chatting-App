@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:chatting_app_1/models/chat_bubble.dart';
 import 'package:chatting_app_1/models/my_textfield.dart';
+import 'package:chatting_app_1/pages/add_participants_dialog.dart';
 import 'package:chatting_app_1/pages/bottomnavigationbar.dart';
 import 'package:chatting_app_1/services/auth/auth_service.dart';
 import 'package:chatting_app_1/services/chat/chat_service.dart';
@@ -72,6 +73,15 @@ class _GroupChatPageState extends State<GroupChatPage> {
     }
   }
 
+  void _showAddParticipantsDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AddParticipantsDialog(groupId: widget.groupId);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,17 +94,12 @@ class _GroupChatPageState extends State<GroupChatPage> {
             " (Group)".text.color(Mycolors.textcolorwhite).make()
           ],
         ),
-        // actions: [
-        //   Transform.rotate(
-        //     angle: 220 * math.pi / 180,
-        //     child: IconButton(iconSize: 27,
-        //       icon: Icon(Icons.attach_file_rounded),
-        //       onPressed: _selectFile,
-        //       style: ButtonStyle(),
-        //       color: Vx.white,
-        //     ),
-        //   ),
-        // ],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.person_add),
+            onPressed: _showAddParticipantsDialog,
+          ),
+        ],
         leading: IconButton(
             onPressed: () {
               Navigator.push(
