@@ -1,3 +1,3 @@
-# chatting_app_1
+# chatting_app
 
-A new Flutter project.
+Flutter based chatting app facilitating peer to peer message and media sharing.
