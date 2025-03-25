@@ -43,9 +43,9 @@ cd chat-app
 ```
 
 2. Install dependencies:
-'''sh
+```sh
 flutter pub get
-'''
+```
 
 3. Configure Firebase:
 
@@ -60,9 +60,9 @@ Place them inside the respective platform folders.
 
 
 4. Run the app:
-'''sh
+```sh
 flutter run
-'''
+```
 
 
 💡 Future Enhancements
