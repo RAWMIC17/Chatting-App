@@ -2,7 +2,7 @@
 
 A Flutter-based Chat Application powered by Firebase for real-time messaging and Google Account Authentication for seamless user login.
 
-##✨ Features
+## ✨ Features
 
 Google Authentication: Secure sign-in with Google accounts.
 
@@ -17,7 +17,7 @@ Secure Conversations: End-to-end encryption with Firebase Firestore security rul
 Customizable Themes: Light & dark mode support for better user experience.
 
 
-##🛠 Tech Stack
+## 🛠 Tech Stack
 
 Flutter (Frontend)
 
