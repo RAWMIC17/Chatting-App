@@ -37,10 +37,10 @@ Provider / Riverpod (State Management)
 🚀 Installation
 
 1. Clone the repository:
-'''sh
+```sh
 git clone https://github.com/your-username/chat-app.git
 cd chat-app
-'''
+```
 
 2. Install dependencies:
 '''sh
